@@ -1,0 +1,45 @@
+<tool id="influx_data_manager" name="Handle influx_si data input in Galaxy workflows" version="0.1.0+galaxy0" python_template_version="3.5" profile="21.05">
+    <requirements>
+        <requirement type="package" version="2.1.3">pandas</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+    python '${__tool_directory__}/main.py' 
+    --physiofit $in_physiofit 
+    --isocor $in_isocor 
+    --linp $in_linp 
+    --netw $in_netw 
+    --mmet $in_mmet 
+    --cnstr $in_cnstr 
+    --tvar $in_tvar 
+    --opt $in_opt 
+    --log $out_log
+    #if $verbose == 'true':
+        -v
+    #end if 
+    2> $err_out
+    ]]></command>
+    <inputs>
+        <param type='data' name='in_physiofit' label='mflux' help='Output of physiofit which corresponds to the .mflux input'/>
+        <param type='data' name='in_isocor' label='miso' help='Output of isocor which corresponds to the .miso input' optional='false'/>
+        <param type='data' name='in_linp' label='linp' help='File contianing label inputs for experiments (.linp file)'/>
+        <param type='data' name='in_netw' label='netw' help='File containing network for experiments (.netw file)' optional='false'/>
+        <param type='data' name='in_mmet' label='mmet' help='File containing specie concentrations for experiments (.mmet file)'/>
+        <param type='data' name='in_cnstr' label='cnstr' help='File containing constraints onf fluxes and specie concentrations for experiments (.constr file)' />
+        <param type='data' name='in_tvar' label='tvar' help='File containing types of variables for experiments (.tvar file)' optional='false'/>
+        <param type='data' name='in_opt' label='opt' help='File containing options for influx_si (.opt  file)'/>
+        <param name='verbose' type='select' label='Debug mode' help='Select "Yes" to have debug logs be printed out'>
+            <option value='true'>Yes</option>
+            <option value='false'>No</option>
+        </param>     
+    </inputs>
+    <outputs>
+        <data format='txt' name='out_log' label='Run log'/>
+        <collection type='list' label='Influx_si input files'>
+            <discover_datasets pattern='__name_and_ext__' format='zip'/>
+        </collection>
+        <data format='txt' name='err_out' label='Influx DM error log'/>
+    </outputs>
+    <help><![CDATA[
+    TODO: Fill in help.
+    ]]></help>
+</tool>
