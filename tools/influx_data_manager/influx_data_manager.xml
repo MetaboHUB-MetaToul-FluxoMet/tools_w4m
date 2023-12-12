@@ -3,7 +3,7 @@
         <requirement type="package" version="2.1.3">pandas</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-    python '${__tool_directory__}/main.py' 
+    influx_si_data_manager
     --physiofit $in_physiofit 
     --isocor $in_isocor 
     --linp $in_linp 
