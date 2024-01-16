@@ -1,9 +1,12 @@
 <tool id="influx_data_manager" name="Influx Data Manager: Handling influx_si data inputs in Galaxy workflows" version="0.1.0+galaxy0" python_template_version="3.5" profile="21.05">
+    <macros>
+        <token name='@TOOL_VERSION@'>0.1.1</token>
+    </macros>
     <requirements>
-        <requirement type="package" version="2.1.3">pandas</requirement>
+        <requirement type='package' version='@TOOL_VERSION@'>influx_data_manager</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-    influx_si_data_manager
+    influs_data_manager
     --physiofit $in_physiofit 
     --isocor $in_isocor 
     --linp $in_linp 
@@ -19,14 +22,14 @@
     2> $err_out
     ]]></command>
     <inputs>
-        <param type='data' name='in_physiofit' label='mflux' help='Output of physiofit which corresponds to the .mflux input'/>
-        <param type='data' name='in_isocor' label='miso' help='Output of isocor which corresponds to the .miso input' optional='false'/>
-        <param type='data' name='in_linp' label='linp' help='File contianing label inputs for experiments (.linp file)'/>
         <param type='data' name='in_netw' label='netw' help='File containing network for experiments (.netw file)' optional='false'/>
-        <param type='data' name='in_mmet' label='mmet' help='File containing specie concentrations for experiments (.mmet file)'/>
-        <param type='data' name='in_cnstr' label='cnstr' help='File containing constraints onf fluxes and specie concentrations for experiments (.constr file)' />
+        <param type='data' name='in_isocor' label='miso' help='Output of isocor which corresponds to the .miso input' optional='false'/>
         <param type='data' name='in_tvar' label='tvar' help='File containing types of variables for experiments (.tvar file)' optional='false'/>
-        <param type='data' name='in_opt' label='opt' help='File containing options for influx_si (.opt  file)'/>
+        <param type='data' name='in_physiofit' label='mflux' help='Output of physiofit which corresponds to the .mflux input' optional='true'/>
+        <param type='data' name='in_linp' label='linp' help='File contianing label inputs for experiments (.linp file)' optional='true'/>
+        <param type='data' name='in_mmet' label='mmet' help='File containing specie concentrations for experiments (.mmet file)' optional='true'/>
+        <param type='data' name='in_cnstr' label='cnstr' help='File containing constraints onf fluxes and specie concentrations for experiments (.constr file)' optional='true'/>
+        <param type='data' name='in_opt' label='opt' help='File containing options for influx_si (.opt  file)' optional='true'/>
         <param name='verbose' type='select' label='Debug mode' help='Select "Yes" to have debug logs be printed out'>
             <option value='true'>Yes</option>
             <option value='false'>No</option>
