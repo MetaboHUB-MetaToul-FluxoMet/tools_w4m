@@ -1,9 +1,9 @@
-<tool id="influx_data_manager" name="Influx Data Manager: Handling influx_si data inputs in Galaxy workflows" version="0.1.0+galaxy0" python_template_version="3.5" profile="21.05">
+<tool id="influx_data_manager" name="Influx Data Manager: Handling influx_si data inputs in Galaxy workflows" version="@TOOL_VERSION@+galaxy0" profile="21.09">
     <macros>
-        <token name='@TOOL_VERSION@'>0.1.1</token>
+        <token name='@TOOL_VERSION@'>1.0.0</token>
     </macros>
     <requirements>
-        <requirement type='package' version='@TOOL_VERSION@'>influx_data_manager</requirement>
+        <requirement type='package' version='@TOOL_VERSION@'>influx-si-data-manager</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
     influx_data_manager
@@ -37,12 +37,46 @@
     </inputs>
     <outputs>
         <data format='txt' name='out_log' label='Run log'/>
-        <collection type='list' label='Influx_si input files'>
+        <collection type='list' label='Influx_si input files' name='list_output'>
             <discover_datasets pattern='__name_and_ext__' format='zip'/>
         </collection>
         <data format='txt' name='err_out' label='Influx DM error log'/>
     </outputs>
+    <tests>
+        <test>
+            <param name='in_netw' value='galaxy_test.netw'/>
+            <param name='in_isocor' value='galaxy_test.tsv'/>
+            <param name='in_tvar' value='galaxy_test.tvar'/>
+            <param name='in_physiofit' value='galaxy_test.csv'/>
+            <param name='in_linp' value='galaxy_test.linp'/>
+            <!-- <param name='in_mmet' value='galaxy_test.mmet'/> FOR FUTURE USE IN INSTATIONARY SETTING -->
+            <param name='in_cnstr' value='galaxy_test.cnstr'/>
+            <param name='in_opt' value='galaxy_test.opt'/>
+            <param name='verbose' value='true'/>
+            <output_collection name='list_output' type='list'>
+                <element name='Sample_1'>
+                    <assert_contents>
+                        <has_archive_member path='Sample_1.miso'/>
+                        <has_archive_member path='Sample_1.mflux'/>
+                        <has_archive_member path='Sample_1.netw'/>
+                        <has_archive_member path='Sample_1.tvar'/>
+                        <has_archive_member path='Sample_1.linp'/>
+                        <has_archive_member path='Sample_1.cnstr'/>
+                        <has_archive_member path='Sample_1.opt'/>
+                    </assert_contents>
+                </element>
+            </output_collection>
+        </test>
+    </tests>
     <help><![CDATA[
-    TODO: Fill in help.
+    This tool is mean to handle the input files for influx_si within workflows. It is not meant to be used as a stand-alone within the platform.
     ]]></help>
+    <citations>
+        <citation type='bibtex'>
+    @misc{githubinflux_si,
+      author = {Le Gregam, Loic},
+      year = {2024},
+      title = {Influx-si-data-manager},
+    }</citation>
+        </citations>
 </tool>
