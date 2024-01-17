@@ -6,7 +6,7 @@
         <requirement type='package' version='@TOOL_VERSION@'>influx_data_manager</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-    influs_data_manager
+    influx_data_manager
     --physiofit $in_physiofit 
     --isocor $in_isocor 
     --linp $in_linp 
