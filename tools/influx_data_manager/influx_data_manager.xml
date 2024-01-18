@@ -38,7 +38,7 @@
         <data format='txt' name='err_out' label='Influx DM error log'/>
     </outputs>
     <tests>
-        <test expect_num_outputs='1'>
+        <test expect_num_outputs='3'>
             <param name='in_netw'  value='galaxy_test.netw'/>
             <param name='in_isocor' value='galaxy_test.tsv'/>
             <param name='in_tvar' value='galaxy_test.tvar'/>
@@ -68,10 +68,12 @@
     ]]></help>
     <citations>
         <citation type='bibtex'>
-    @misc{githubinflux_si,
-      author = {Le Gregam, Loic},
-      year = {2024},
-      title = {Influx-si-data-manager},
-    }</citation>
+            @misc{
+            githubinflux_si,
+            author = {Le Gregam, Loic},
+            year = {2024},
+            title = {Influx-si-data-manager},
+        }
+        </citation>
         </citations>
 </tool>
