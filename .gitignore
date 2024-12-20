@@ -16,3 +16,13 @@ tools/tests_output/skyline2isocor/skyline2isocor_33931.log
 tools/tests_output/skyline2isocor/skyline2isocor_37921.log
 tools/tests_output/skyline2isocor/tool_test_output.html
 tools/tests_output/skyline2isocor/tool_test_output.json
+tools/tests_output/influx_data_manager/influx_data_manager.log
+tools/tests_output/influx_data_manager/tool_test_output.html
+tools/tests_output/influx_data_manager/tool_test_output.json
+tools/tests_output/isocor/isocor.log
+tools/tests_output/isocor/tool_test_output.html
+tools/tests_output/isocor/tool_test_output.json
+tools/tests_output/isoplot/isoplot.log
+tools/tests_output/physiofit/physiofit.log
+tools/tests_output/physiofit_manager/physiofit_manager.log
+tools/tests_output/skyline2isocor/skyline2isocor.log
