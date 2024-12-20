@@ -1,0 +1,152 @@
+<tool id="isocor" name="Isotope Correction for mass spectrometry labeling experiments" version="0.1.3">
+    <requirements>
+        <requirement type="package" version="2.2.0">isocor</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        isocorcli -t "$tracer" -M "$db.input1" -D "$db.input2" -I "$db.input3"
+#if $tcorrection.tracer_purity:
+    -p $tcorrection.tracer_purity
+#end if
+#if $HR.resolution:
+    -r $HR.resolution
+#end if
+#if $HR.mz:
+    -m $HR.mz
+#end if 
+#if $HR.resolution_formula_code:
+    -f $HR.resolution_formula_code
+#end if
+#if $tcorrection.correct_na_tracer:
+    -n
+#end if
+#if $verbose_log:
+    -v
+#end if
+ "$input4" > "$output1" 2> "$output2"
+    ]]></command>
+    <inputs>
+        <param type="text" name="tracer" argument="-t" label="the isotopic tracer (e.g. '13C')" />
+        <param type="data" name="input4" label="measurements Data file" format="tabular" help="This file contains the raw MS data for each metabolite of each sample." />
+        <section name="db" title="Database Files" expanded="true" help="The exact mass and natural abundance of each isotope and the elemental formulas used for correction have to be defined carefully, otherwise the correction will be wrong. IsoCor rely on several flat-files to store this information. Pre-configured files are shipped with IsoCor. For a good start download them on github">
+            <param type="data" name="input1" argument="-M" label="metabolites db" format="tabular" />
+            <param type="data" name="input2" argument="-D" label="derivatives db" format="tabular" />
+            <param type="data" name="input3" argument="-I" label="isotopes db" format="csv" />
+        </section>
+        <section name="HR" title="High Resolution Parameters" expanded="true" help="For measurements collected at high or ultrahigh resolution (e.g. on Orbitrap or FT-ICR instruments). Measurements collected at unitary resolution (e.g. on quadrupole instruments) are Low Resolution, don't fill this section.">
+            <param name="resolution_formula_code" optional="true" argument="-f" type="select" label="HR only: spectrometer formula code">
+                <option value="orbitrap">Orbitrap</option>
+                <option value="ft-icr">ft-icr</option>
+                <option value="constant">Constant</option>
+                <option value="datafile">Datafile</option>
+            </param>
+            <param type="integer" optional="true" argument="-r" name="resolution" label="HR only: resolution of the mass spectrometer (e.g. '60000' or '1e4')" />
+            <param type="integer" optional="true" argument="-m" name="mz" label="HR only: mz at which resolution is given (e.g. '400')" />
+        </section>
+        <section name="tcorrection" title="Tracer Correction Options" expanded="true">
+            <param type="boolean" optional="true" argument="-n" name="correct_na_tracer" label="flag to correct tracer natural abundance" help="Correct for the contribution of naturally occurring isotopes of the tracer element at unlabeled positions. This only concerns the tracer element: natural abundance of other elements is always corrected." />
+            <param type="text" optional="true" argument="-p" name="tracer_purity" label="purity vector of the tracer (e.g. '0,0,0.99,0.01')" help="Correct for the contribution of isotopic impurities of the tracer at labeled positions. The isotopic purity is typically obtained from the manufacturer. e.g. ¹³C-substates with purity of 99%, use 0.01 for ¹²C and 0.99 for ¹³C." />
+        </section>
+        <param type="boolean" optional="true" argument="-v" name="verbose_log" label="flag to enable verbose logs" help="Useful in case of trouble. Join it to the issue on github." />
+
+
+    </inputs>
+    <outputs>
+        <data name="output1" label="corrected measurements data file" format="tabular" />
+        <data name="output2" label="processing log file" format="txt" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="tracer" value="13C"/>
+            <section name="db">
+                <param name="input1" value="Metabolites.dat"/>
+                <param name="input2" value="Derivatives.dat"/>
+                <param name="input3" value="Isotopes.dat"/>
+            </section>
+            <param name="input4" value="Data_example.tsv"/>
+            <output name="output1">
+                <assert_contents>
+                    <has_n_columns n="10" />
+                </assert_contents>
+	        </output>
+            <output name="output2">
+		        <assert_contents>
+	        		<has_text text="- root - INFO -    errors: 0" />
+	        	</assert_contents>
+	        </output>
+        </test>
+        <test>
+            <param name="tracer" value="13C"/>
+            <section name="db">
+                <param name="input1" value="Metabolites.dat"/>
+                <param name="input2" value="Derivatives.dat"/>
+                <param name="input3" value="Isotopes.dat"/>
+            </section>
+            <section name="HR">
+                <param name="mz" value="400"/>
+                <param name="resolution" value="60000"/>
+                <param name="resolution_formula_code" value="orbitrap"/>
+            </section>
+            <section name="tcorrection">
+                <param name="correct_na_tracer" value="-n"/>
+                <param name="tracer_purity" value="0.01,0.99"/>
+            </section>
+            <param name="input4" value="Data_example.tsv"/>
+            <output name="output1">
+                <assert_contents>
+                    <has_n_columns n="10" />
+                </assert_contents>
+	        </output>
+            <output name="output2">
+		        <assert_contents>
+	        		<has_text text="- root - INFO -    errors: 0" />
+	        	</assert_contents>
+	        </output>
+        </test>
+    </tests>
+    <help><![CDATA[
+.. class:: warningmark
+
+ We strongly encourage you to read the `Tutorials <https://isocor.readthedocs.io/en/latest/tutorials.html#tutorials>`_ before using IsoCor.
+
+----
+
+usage:
+    isocorcli [-h] [-M M] [-D D] [-I I] -t TRACER [-r RESOLUTION] [-m MZ_OF_RESOLUTION] [-f {orbitrap,ft-icr,constant,datafile}] [-p TRACER_PURITY] [-n] [-v] inputdata
+
+    correction of MS data for naturally occurring isotopes
+
+positional arguments:
+  inputdata             measurements file to process
+
+optional arguments:
+  -h, --help                  show this help message and exit
+  -M M                        path to metabolites database
+  -D D                        path to derivatives database
+  -I I                        path to isotopes database
+  -t TRACER, --tracer TRACER  the isotopic tracer (e.g. "13C")
+
+  -r RESOLUTION, --resolution RESOLUTION  HR only: resolution of the mass spectrometer (e.g. 1e4)
+
+  -m MZ_OF_RESOLUTION, --mz_of_resolution MZ_OF_RESOLUTION   HR only: mz at which resolution is given (e.g. "400")
+
+  -f FORMULA_ORIGIN, --resolution_formula_code FORMULA_ORIGIN
+        HR only: spectrometer formula code
+
+  -p TRACER_PURITY, --tracer_purity TRACER_PURITY   purity vector of the tracer
+  -n, --correct_NA_tracer   flag to correct tracer natural abundance
+  -v, --verbose             flag to enable verbose logs
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+@article{10.1093/bioinformatics/btz209,
+    author = {Delépine, Baudoin and Létisse, Fabien and Millard, Pierre and Bellvert, Floriant and Guionnet, Matthieu and Heuillet, Maud},
+    title = "{IsoCor: isotope correction for high-resolution MS labeling experiments}",
+    year = {2019},
+    month = {03},
+    abstract = "{Mass spectrometry (MS) is widely used for isotopic studies of metabolism and other (bio)chemical processes. Quantitative applications in systems and synthetic biology require to correct the raw MS data for the contribution of naturally occurring isotopes. Several tools are available to correct low-resolution MS data, and recent developments made substantial improvements by introducing resolution-dependent correction methods, hence opening the way to the correction of high-resolution MS (HRMS) data. Nevertheless, current HRMS correction methods partly fail to determine which isotopic species are resolved from the tracer isotopologues and should thus be corrected. We present an updated version of our isotope correction software (IsoCor) with a novel correction algorithm which ensures to accurately exploit any chemical species with any isotopic tracer, at any MS resolution. IsoCor v2 also includes a novel graphical user interface for intuitive use by end-users and a command-line interface to streamline integration into existing pipelines.IsoCor v2 is implemented in Python 3 and was tested on Windows, Unix and MacOS platforms. The source code and the documentation are freely distributed under GPL3 license at https://github.com/MetaSys-LISBP/IsoCor/ and https://isocor.readthedocs.io/.Supplementary data are available at Bioinformatics online.}",
+    doi = {10.1093/bioinformatics/btz209},
+    url = {https://doi.org/10.1093/bioinformatics/btz209},
+    eprint = {http://oup.prod.sis.lan/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btz209/28212636/btz209.pdf},
+}</citation>
+    </citations>
+</tool>

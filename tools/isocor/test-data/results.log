@@ -1,0 +1,59 @@
+2020-05-04 16:44:12 - numexpr.utils - INFO - NumExpr defaulting to 4 threads.
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO - Correction process
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO -    data files
+2020-05-04 16:44:12 - root - INFO -       data file: Data_example.tsv
+2020-05-04 16:44:12 - root - INFO -       derivatives database: Derivatives.dat
+2020-05-04 16:44:12 - root - INFO -       metabolites database: Metabolites.dat
+2020-05-04 16:44:12 - root - INFO -       isotopes database: Isotopes.dat
+2020-05-04 16:44:12 - root - INFO -    correction parameters
+2020-05-04 16:44:12 - root - INFO -       isotopic tracer: 13C
+2020-05-04 16:44:12 - root - INFO -       correct natural abundance of the tracer element: False
+2020-05-04 16:44:12 - root - INFO -       isotopic purity of the tracer: None
+2020-05-04 16:44:12 - root - INFO -       mode: low-resolution
+2020-05-04 16:44:12 - root - INFO -    natural abundance of isotopes
+2020-05-04 16:44:12 - root - INFO -    {'C': {'mass': [Decimal('12.0'), Decimal('13.003354835')], 'abundance': [0.9893, 0.0107]}, 'H': {'mass': [Decimal('1.0078250322'), Decimal('2.0141017781')], 'abundance': [0.999885, 0.000115]}, 'N': {'mass': [Decimal('14.003074004'), Decimal('15.000108899')], 'abundance': [0.99636, 0.00364]}, 'O': {'mass': [Decimal('15.99491462'), Decimal('16.999131757'), Decimal('17.999159613')], 'abundance': [0.99757, 0.00038, 0.00205]}, 'P': {'mass': [Decimal('30.973761998')], 'abundance': [1.0]}, 'S': {'mass': [Decimal('31.972071174'), Decimal('32.971458910'), Decimal('33.9678670'), Decimal('35'), Decimal('35.967081')], 'abundance': [0.9499, 0.0075, 0.0425, 0.0, 0.0001]}, 'Si': {'mass': [Decimal('27.976926535'), Decimal('28.976494665'), Decimal('29.9737701')], 'abundance': [0.92223, 0.04685, 0.03092]}}
+2020-05-04 16:44:12 - root - INFO -    IsoCor version: 2.2.0
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO - Constructing correctors for all (metabolite, derivative)...
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO - ('Fum', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('OA', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('aKG', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('G3P', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('2/3PG', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('E4P', '') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('Fum', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('OA', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('aKG', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('G3P', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('2/3PG', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ('E4P', 'TMS') successfully constructed.
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO - Correcting raw MS data...
+2020-05-04 16:44:12 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('Fum', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('Fum', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('OA', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('OA', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('aKG', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('aKG', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('G3P', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('G3P', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('2/3PG', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('2/3PG', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_1 - ('E4P', ''): processed
+2020-05-04 16:44:12 - root - INFO - Sample_2 - ('E4P', ''): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('Fum', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('OA', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('aKG', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('G3P', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('2/3PG', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - Sample_3 - ('E4P', 'TMS'): processed
+2020-05-04 16:44:13 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:13 - root - INFO - Correction process summary
+2020-05-04 16:44:13 - root - INFO - ------------------------------------------------
+2020-05-04 16:44:13 - root - INFO -    number of samples: 3
+2020-05-04 16:44:13 - root - INFO -    number of (metabolite, derivative): 12
+2020-05-04 16:44:13 - root - INFO -    errors: 0
