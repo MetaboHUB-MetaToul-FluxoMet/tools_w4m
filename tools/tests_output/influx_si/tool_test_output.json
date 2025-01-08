@@ -1,0 +1,118 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 0,
+        "num_skips": 0,
+        "num_tests": 1
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "input_main": {
+                        "id": "70f5648bc224f8ce",
+                        "src": "hda"
+                    },
+                    "si|s_i": "s"
+                },
+                "job": {
+                    "command_line": "unzip /tmp/tmp9495vr7x/files/e/1/e/dataset_e1eb18a6-474f-4ad2-952b-a57e7f6a1ce5.dat;  ret=0; influx_s               --prefix \"e_coli\"  || ret=$?;  for f in \"e_coli\"_res/*.{err,log}; do mv -f \"$f\" \"$f\".txt || true; done; for f in \"e_coli\"_res/*.{sim,stat}; do mv -f \"$f\" \"$f\".tsv || true; done; for f in \"e_coli\"_res/*.pdf; do [ -e \"$f\" ] && mv -f \"$f\" \"$f\".pdf || true; done; rm -rf \"e_coli\"_res/tmp || true; exit $ret;",
+                    "command_version": null,
+                    "copied_from_job_id": null,
+                    "create_time": "2025-01-07T11:06:02.157857",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "48234",
+                    "galaxy_version": "24.1",
+                    "handler": null,
+                    "history_id": "70f5648bc224f8ce",
+                    "id": "eb607a2fa0359d5b",
+                    "inputs": {
+                        "input_main": {
+                            "id": "70f5648bc224f8ce",
+                            "src": "hda",
+                            "uuid": "e1eb18a6-474f-4ad2-952b-a57e7f6a1ce5"
+                        },
+                        "input_main1": {
+                            "id": "70f5648bc224f8ce",
+                            "src": "hda",
+                            "uuid": "e1eb18a6-474f-4ad2-952b-a57e7f6a1ce5"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {
+                        "influx_si_output": {
+                            "id": "70f5648bc224f8ce",
+                            "src": "hdca"
+                        }
+                    },
+                    "outputs": {
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.err__": {
+                            "id": "eb607a2fa0359d5b",
+                            "src": "hda",
+                            "uuid": "035f7e80-4235-40f1-b316-6fdd5953ca03"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.log__": {
+                            "id": "0e2e2324a5032c40",
+                            "src": "hda",
+                            "uuid": "7576f073-186d-4915-ae32-9fddf1dcd4f4"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.mflux.sim__": {
+                            "id": "8909333b9d6bb32c",
+                            "src": "hda",
+                            "uuid": "d6cc6721-60c2-46ec-b80a-f3b9a20bec2f"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.miso.sim__": {
+                            "id": "571b4323345d9a74",
+                            "src": "hda",
+                            "uuid": "d06a4d5e-65cf-4a79-8503-c6da6025689f"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.pdf__": {
+                            "id": "11c4e6a137843b81",
+                            "src": "hda",
+                            "uuid": "963eec7a-2977-4101-b020-5d7f80ab5c58"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.stat__": {
+                            "id": "b6cd12faa0ae92f6",
+                            "src": "hda",
+                            "uuid": "f98f64c1-9ccd-4735-841b-8178d6db0817"
+                        },
+                        "__new_primary_file_influx_si_output|e_coli:e_coli.tvar.sim__": {
+                            "id": "d340e76329835241",
+                            "src": "hda",
+                            "uuid": "85a7d46a-c78d-4831-bbe9-7a510af573ec"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "chromInfo": "\"/home/llegregam/Documents/tools_w4m/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "opt": "{\"TIMEIT\": false, \"addnoise\": false, \"cinout\": \"\", \"clownr\": \"\", \"clowp\": \"\", \"cupn\": \"\", \"cupp\": \"\", \"cupx\": \"\", \"emu\": false, \"excl_outliers\": \"\", \"ffguess\": false, \"fseries\": \"\", \"fullsys\": false, \"irand\": false, \"iseries\": \"\", \"lim\": false, \"ln\": false, \"meth\": null, \"mtf\": \"\", \"nocalc\": false, \"noopt\": false, \"noscale\": false, \"np\": \"\", \"prof\": false, \"seed\": \"\", \"sens\": \"\", \"sln\": false, \"tblimit\": \"0\", \"tikhreg\": false, \"zc\": \"\"}",
+                        "si": "{\"__current_case__\": 0, \"s_i\": \"s\"}"
+                    },
+                    "state": "ok",
+                    "stderr": "",
+                    "stdout": "Archive:  /tmp/tmp9495vr7x/files/e/1/e/dataset_e1eb18a6-474f-4ad2-952b-a57e7f6a1ce5.dat\n  inflating: e_coli.cnstr            \n  inflating: e_coli.linp             \n  inflating: e_coli.mflux            \n  inflating: e_coli.miso             \n  inflating: e_coli.netw             \n  inflating: e_coli.opt              \n  inflating: e_coli.tvar             \n  inflating: e_coli.tvar.def         \ncode gen: 2025-01-07 12:06:03\ncalcul  : 2025-01-07 12:06:03\nend     : 2025-01-07 12:06:05\n",
+                    "tool_id": "influx_si",
+                    "tool_stderr": "",
+                    "tool_stdout": "Archive:  /tmp/tmp9495vr7x/files/e/1/e/dataset_e1eb18a6-474f-4ad2-952b-a57e7f6a1ce5.dat\n  inflating: e_coli.cnstr            \n  inflating: e_coli.linp             \n  inflating: e_coli.mflux            \n  inflating: e_coli.miso             \n  inflating: e_coli.netw             \n  inflating: e_coli.opt              \n  inflating: e_coli.tvar             \n  inflating: e_coli.tvar.def         \ncode gen: 2025-01-07 12:06:03\ncalcul  : 2025-01-07 12:06:03\nend     : 2025-01-07 12:06:05\n",
+                    "update_time": "2025-01-07T11:06:09.209486",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "status": "success",
+                "test_index": 0,
+                "time_seconds": 14.858643531799316,
+                "tool_id": "influx_si",
+                "tool_version": "7.0.1+galaxy1"
+            },
+            "has_data": true,
+            "id": "influx_si-0"
+        }
+    ],
+    "version": "0.1"
+}

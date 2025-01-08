@@ -1,7 +1,3 @@
-# This script clones the repositories of the tools to be installed in the Galaxy environment, 
-# updates them if they already exist, and installs them into the Galaxy environment.
-# Launch the script from the root directory where the repositories should be cloned, or are already cloned.
-
 #!/bin/bash
 
 # Save initial directory
@@ -18,28 +14,18 @@ repos=(
     "https://github.com/MetaboHUB-MetaToul-FluxoMet/Skyline2IsoCor.git"
 )
 
-# Directory to store the cloned repositories
-clone_dir="$initial_dir/cloned_repos"
-
-# Create the clone directory if it doesn't exist
-mkdir -p "$clone_dir"
-
-# Clone/update repositories
+# Add/update submodules
 for repo in "${repos[@]}"; do
     repo_name=$(basename "$repo" .git)
+    submodule_path="$initial_dir/$repo_name"
     
-    if [ -d "$clone_dir/$repo_name" ]; then
-        pushd "$clone_dir/$repo_name" > /dev/null
-        echo "Updating $repo_name..."
-        git fetch
-        branch_name=$(git rev-parse --abbrev-ref HEAD)
-        git pull origin "$branch_name"
-        popd > /dev/null
+    if git config --file .gitmodules --get-regexp path | grep -q "$repo_name"; then
+        echo "Updating submodule $repo_name..."
+        git submodule update --remote "$repo_name"
     else
-        pushd "$clone_dir" > /dev/null
-        echo "Cloning $repo_name..."
-        git clone "$repo"
-        popd > /dev/null
+        echo "Adding submodule $repo_name..."
+        git submodule add "$repo" "$repo_name"
+        git submodule update --init --recursive "$repo_name"
     fi
 done
 
@@ -49,7 +35,7 @@ source /home/llegregam/Documents/tools_w4m/galaxy/.venv/bin/activate
 # Install each tool into the Galaxy environment
 for repo in "${repos[@]}"; do
     repo_name=$(basename "$repo" .git)
-    tool_dir="$clone_dir/$repo_name"
+    tool_dir="$initial_dir/$repo_name"
     
     if [ -d "$tool_dir" ]; then
         pushd "$tool_dir" > /dev/null
