@@ -1,0 +1,269 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 2,
+        "num_skips": 0,
+        "num_tests": 2
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "db|input1": {
+                        "id": "35bebc2665a4544e",
+                        "src": "hda"
+                    },
+                    "db|input2": {
+                        "id": "dbb3eb0555e92652",
+                        "src": "hda"
+                    },
+                    "db|input3": {
+                        "id": "e30773084e658b53",
+                        "src": "hda"
+                    },
+                    "input4": {
+                        "id": "6cfb3c65b19d0834",
+                        "src": "hda"
+                    },
+                    "tracer": "13C"
+                },
+                "job": {
+                    "command_line": "isocorcli -t \"13C\" -M \"/tmp/tmp7rxzlier/files/f/0/7/dataset_f0734af4-6229-4d5b-8112-5da39beab04c.dat\" -D \"/tmp/tmp7rxzlier/files/7/1/3/dataset_713d1e16-ffa8-4a33-b894-e1a1977d78b4.dat\" -I \"/tmp/tmp7rxzlier/files/f/e/a/dataset_fead624a-8385-432a-92d3-1c90975f5b9d.dat\" \"/tmp/tmp7rxzlier/files/1/8/c/dataset_18c05132-c1d0-4857-9e52-576e2af2ce03.dat\" > \"/tmp/tmp7rxzlier/job_working_directory/000/5/outputs/dataset_fb1fe97d-36e0-421c-9519-7b8fd14a1902.dat\" 2> \"/tmp/tmp7rxzlier/job_working_directory/000/5/outputs/dataset_590ce629-d211-49f4-b81e-37c9847032d3.dat\"",
+                    "command_version": "",
+                    "copied_from_job_id": null,
+                    "create_time": "2025-01-07T11:07:01.555768",
+                    "dependencies": [],
+                    "exit_code": 1,
+                    "external_id": "49219",
+                    "galaxy_version": "24.1",
+                    "handler": null,
+                    "history_id": "6cfb3c65b19d0834",
+                    "id": "fdbae62727f1a56d",
+                    "inputs": {
+                        "db|input1": {
+                            "id": "35bebc2665a4544e",
+                            "src": "hda",
+                            "uuid": "f0734af4-6229-4d5b-8112-5da39beab04c"
+                        },
+                        "db|input2": {
+                            "id": "dbb3eb0555e92652",
+                            "src": "hda",
+                            "uuid": "713d1e16-ffa8-4a33-b894-e1a1977d78b4"
+                        },
+                        "db|input3": {
+                            "id": "e30773084e658b53",
+                            "src": "hda",
+                            "uuid": "fead624a-8385-432a-92d3-1c90975f5b9d"
+                        },
+                        "input4": {
+                            "id": "6cfb3c65b19d0834",
+                            "src": "hda",
+                            "uuid": "18c05132-c1d0-4857-9e52-576e2af2ce03"
+                        }
+                    },
+                    "job_messages": [
+                        {
+                            "code_desc": "",
+                            "desc": "Fatal error: Exit code 1 ()",
+                            "error_level": 3,
+                            "exit_code": 1,
+                            "type": "exit_code"
+                        }
+                    ],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "output1": {
+                            "id": "fdbae62727f1a56d",
+                            "src": "hda",
+                            "uuid": "fb1fe97d-36e0-421c-9519-7b8fd14a1902"
+                        },
+                        "output2": {
+                            "id": "0bf18d55b5478d20",
+                            "src": "hda",
+                            "uuid": "590ce629-d211-49f4-b81e-37c9847032d3"
+                        }
+                    },
+                    "params": {
+                        "HR": "{\"mz\": \"\", \"resolution\": \"\", \"resolution_formula_code\": null}",
+                        "__input_ext": "\"tabular\"",
+                        "chromInfo": "\"/home/llegregam/Documents/tools_w4m/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "db": "{\"input1\": {\"values\": [{\"id\": 2, \"src\": \"hda\"}]}, \"input2\": {\"values\": [{\"id\": 3, \"src\": \"hda\"}]}, \"input3\": {\"values\": [{\"id\": 4, \"src\": \"hda\"}]}}",
+                        "dbkey": "\"?\"",
+                        "tcorrection": "{\"correct_na_tracer\": false, \"tracer_purity\": null}",
+                        "tracer": "\"13C\"",
+                        "verbose_log": "false"
+                    },
+                    "state": "error",
+                    "stderr": "",
+                    "stdout": "",
+                    "tool_id": "isocor",
+                    "tool_stderr": "",
+                    "tool_stdout": "",
+                    "update_time": "2025-01-07T11:07:06.809012",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "output_problems": [
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: ."
+                ],
+                "status": "failure",
+                "test_index": 0,
+                "time_seconds": 23.30124545097351,
+                "tool_id": "isocor",
+                "tool_version": "0.1.3"
+            },
+            "has_data": true,
+            "id": "isocor-0"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "HR|mz": "400",
+                    "HR|resolution": "60000",
+                    "HR|resolution_formula_code": "orbitrap",
+                    "db|input1": {
+                        "id": "3aefd1518c5a2dc5",
+                        "src": "hda"
+                    },
+                    "db|input2": {
+                        "id": "4c4ab5c769ed1d06",
+                        "src": "hda"
+                    },
+                    "db|input3": {
+                        "id": "05093e9a6aeab492",
+                        "src": "hda"
+                    },
+                    "input4": {
+                        "id": "c7a4707a3b939743",
+                        "src": "hda"
+                    },
+                    "tcorrection|correct_na_tracer": false,
+                    "tcorrection|tracer_purity": "0.01,0.99",
+                    "tracer": "13C"
+                },
+                "job": {
+                    "command_line": "isocorcli -t \"13C\" -M \"/tmp/tmp7rxzlier/files/5/d/8/dataset_5d853877-d375-4fb6-8d5b-e9effe98b39d.dat\" -D \"/tmp/tmp7rxzlier/files/f/f/e/dataset_ffe83765-0595-41a8-9b59-b3b407965914.dat\" -I \"/tmp/tmp7rxzlier/files/b/f/5/dataset_bf53df54-3fa0-4afc-9a05-c0b1d97885a1.dat\" -p 0.01,0.99 -r 60000 -m 400 -f orbitrap \"/tmp/tmp7rxzlier/files/9/c/e/dataset_9ced3b78-7e6a-4746-8ef3-da1e04ad7d8f.dat\" > \"/tmp/tmp7rxzlier/job_working_directory/000/10/outputs/dataset_a43ea99f-89ef-47eb-ab48-297d9c03d713.dat\" 2> \"/tmp/tmp7rxzlier/job_working_directory/000/10/outputs/dataset_13c8ffe0-5711-4506-a4fc-b4072f4fe43c.dat\"",
+                    "command_version": "",
+                    "copied_from_job_id": null,
+                    "create_time": "2025-01-07T11:07:24.316933",
+                    "dependencies": [
+                        {
+                            "cacheable": false,
+                            "dependency_resolver": {
+                                "auto_init": true,
+                                "auto_install": true,
+                                "can_uninstall_dependencies": true,
+                                "ensure_channels": "conda-forge,bioconda,defaults",
+                                "model_class": "CondaDependencyResolver",
+                                "prefix": "/home/llegregam/miniconda3",
+                                "read_only": false,
+                                "resolver_type": "conda",
+                                "resolves_simple_dependencies": true,
+                                "use_local": false,
+                                "versionless": false
+                            },
+                            "dependency_type": "conda",
+                            "environment_path": "/home/llegregam/miniconda3/envs/__isocor@2.2.0",
+                            "exact": true,
+                            "model_class": "MergedCondaDependency",
+                            "name": "isocor",
+                            "version": "2.2.0"
+                        }
+                    ],
+                    "exit_code": 1,
+                    "external_id": "49583",
+                    "galaxy_version": "24.1",
+                    "handler": null,
+                    "history_id": "35bebc2665a4544e",
+                    "id": "05093e9a6aeab492",
+                    "inputs": {
+                        "db|input1": {
+                            "id": "3aefd1518c5a2dc5",
+                            "src": "hda",
+                            "uuid": "5d853877-d375-4fb6-8d5b-e9effe98b39d"
+                        },
+                        "db|input2": {
+                            "id": "4c4ab5c769ed1d06",
+                            "src": "hda",
+                            "uuid": "ffe83765-0595-41a8-9b59-b3b407965914"
+                        },
+                        "db|input3": {
+                            "id": "05093e9a6aeab492",
+                            "src": "hda",
+                            "uuid": "bf53df54-3fa0-4afc-9a05-c0b1d97885a1"
+                        },
+                        "input4": {
+                            "id": "c7a4707a3b939743",
+                            "src": "hda",
+                            "uuid": "9ced3b78-7e6a-4746-8ef3-da1e04ad7d8f"
+                        }
+                    },
+                    "job_messages": [
+                        {
+                            "code_desc": "",
+                            "desc": "Fatal error: Exit code 1 ()",
+                            "error_level": 3,
+                            "exit_code": 1,
+                            "type": "exit_code"
+                        }
+                    ],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "output1": {
+                            "id": "df91a97a71bcfcb1",
+                            "src": "hda",
+                            "uuid": "a43ea99f-89ef-47eb-ab48-297d9c03d713"
+                        },
+                        "output2": {
+                            "id": "252d100ea4aa4277",
+                            "src": "hda",
+                            "uuid": "13c8ffe0-5711-4506-a4fc-b4072f4fe43c"
+                        }
+                    },
+                    "params": {
+                        "HR": "{\"mz\": \"400\", \"resolution\": \"60000\", \"resolution_formula_code\": \"orbitrap\"}",
+                        "__input_ext": "\"tabular\"",
+                        "chromInfo": "\"/home/llegregam/Documents/tools_w4m/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "db": "{\"input1\": {\"values\": [{\"id\": 8, \"src\": \"hda\"}]}, \"input2\": {\"values\": [{\"id\": 9, \"src\": \"hda\"}]}, \"input3\": {\"values\": [{\"id\": 10, \"src\": \"hda\"}]}}",
+                        "dbkey": "\"?\"",
+                        "tcorrection": "{\"correct_na_tracer\": false, \"tracer_purity\": \"0.01,0.99\"}",
+                        "tracer": "\"13C\"",
+                        "verbose_log": "false"
+                    },
+                    "state": "error",
+                    "stderr": "",
+                    "stdout": "",
+                    "tool_id": "isocor",
+                    "tool_stderr": "",
+                    "tool_stdout": "",
+                    "update_time": "2025-01-07T11:07:29.798576",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "output_problems": [
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isocor, exit_code: 1, stderr: ."
+                ],
+                "status": "failure",
+                "test_index": 1,
+                "time_seconds": 23.06110191345215,
+                "tool_id": "isocor",
+                "tool_version": "0.1.3"
+            },
+            "has_data": true,
+            "id": "isocor-1"
+        }
+    ],
+    "version": "0.1"
+}

@@ -1,0 +1,129 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 1,
+        "num_skips": 0,
+        "num_tests": 1
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "IP|interactive_barplot": true,
+                    "SP|barplot": true,
+                    "datafile": {
+                        "id": "2b7ebaa107d5ed9d",
+                        "src": "hda"
+                    },
+                    "format": "pdf",
+                    "template_file": {
+                        "id": "f7785c888e802b48",
+                        "src": "hda"
+                    },
+                    "value": "isotopologue_fraction"
+                },
+                "job": {
+                    "command_line": "isoplot '/tmp/tmpik6xytjy/files/1/c/1/dataset_1c149677-f146-41be-bd48-0b74b988cef7.dat' 'galaxy' 'pdf' --value 'isotopologue_fraction' --template '/tmp/tmpik6xytjy/files/1/e/0/dataset_1e0bb89a-a80f-4e7c-bad1-93c1a054b5eb.dat' -bp -IB -g -z '/tmp/tmpik6xytjy/job_working_directory/000/3/outputs/dataset_e25ea734-e495-46a2-8cb4-6f715d1b3939.dat' > /tmp/tmpik6xytjy/job_working_directory/000/3/outputs/dataset_498ac1ea-0f7c-4e80-8af0-d64416255ff8.dat 2> '/tmp/tmpik6xytjy/job_working_directory/000/3/outputs/dataset_f59db7af-8203-4915-bd51-ede95cc7b85a.dat'",
+                    "command_version": "",
+                    "copied_from_job_id": null,
+                    "create_time": "2025-01-07T11:08:13.232417",
+                    "dependencies": [],
+                    "exit_code": 1,
+                    "external_id": "50434",
+                    "galaxy_version": "24.1",
+                    "handler": null,
+                    "history_id": "2b7ebaa107d5ed9d",
+                    "id": "0de38dc2d66206bc",
+                    "inputs": {
+                        "datafile": {
+                            "id": "2b7ebaa107d5ed9d",
+                            "src": "hda",
+                            "uuid": "1c149677-f146-41be-bd48-0b74b988cef7"
+                        },
+                        "datafile1": {
+                            "id": "2b7ebaa107d5ed9d",
+                            "src": "hda",
+                            "uuid": "1c149677-f146-41be-bd48-0b74b988cef7"
+                        },
+                        "template_file": {
+                            "id": "f7785c888e802b48",
+                            "src": "hda",
+                            "uuid": "1e0bb89a-a80f-4e7c-bad1-93c1a054b5eb"
+                        },
+                        "template_file1": {
+                            "id": "f7785c888e802b48",
+                            "src": "hda",
+                            "uuid": "1e0bb89a-a80f-4e7c-bad1-93c1a054b5eb"
+                        }
+                    },
+                    "job_messages": [
+                        {
+                            "code_desc": "",
+                            "desc": "Fatal error: Exit code 1 ()",
+                            "error_level": 3,
+                            "exit_code": 1,
+                            "type": "exit_code"
+                        }
+                    ],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "data_output": {
+                            "id": "0de38dc2d66206bc",
+                            "src": "hda",
+                            "uuid": "498ac1ea-0f7c-4e80-8af0-d64416255ff8"
+                        },
+                        "log_output": {
+                            "id": "20fcb16438ce2de3",
+                            "src": "hda",
+                            "uuid": "f59db7af-8203-4915-bd51-ede95cc7b85a"
+                        },
+                        "plots_output": {
+                            "id": "f83824e379d6610d",
+                            "src": "hda",
+                            "uuid": "e25ea734-e495-46a2-8cb4-6f715d1b3939"
+                        }
+                    },
+                    "params": {
+                        "IP": "{\"interactive_barplot\": true, \"interactive_heatmap\": false, \"interactive_meanplot\": false}",
+                        "SP": "{\"barplot\": true, \"meaned_barplot\": false, \"static_clustermap\": false, \"static_heatmap\": false}",
+                        "__input_ext": "\"input\"",
+                        "annotation": "false",
+                        "chromInfo": "\"/home/llegregam/Documents/tools_w4m/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"pdf\"",
+                        "unstack": "false",
+                        "value": "\"isotopologue_fraction\"",
+                        "verbosity": "false"
+                    },
+                    "state": "error",
+                    "stderr": "",
+                    "stdout": "",
+                    "tool_id": "isoplot",
+                    "tool_stderr": "",
+                    "tool_stdout": "",
+                    "update_time": "2025-01-07T11:08:18.381006",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "output_problems": [
+                    "Job in error state.. tool_id: isoplot, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isoplot, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isoplot, exit_code: 1, stderr: .",
+                    "Job in error state.. tool_id: isoplot, exit_code: 1, stderr: ."
+                ],
+                "status": "failure",
+                "test_index": 0,
+                "time_seconds": 15.023226261138916,
+                "tool_id": "isoplot",
+                "tool_version": "1.3.0+galaxy1"
+            },
+            "has_data": true,
+            "id": "isoplot-0"
+        }
+    ],
+    "version": "0.1"
+}
