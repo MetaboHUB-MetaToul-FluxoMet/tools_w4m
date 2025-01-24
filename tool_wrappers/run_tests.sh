@@ -7,8 +7,6 @@ if ! command -v jq &> /dev/null; then
   sudo apt-get install -y jq
 fi
 
-conda activate planemo
-
 # Create the tests_output directory if it doesn't exist
 mkdir -p tests_output
 
