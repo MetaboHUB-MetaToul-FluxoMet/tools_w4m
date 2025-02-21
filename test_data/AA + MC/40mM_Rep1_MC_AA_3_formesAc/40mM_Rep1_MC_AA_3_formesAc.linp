@@ -1,0 +1,9 @@
+# Created by 'ftbl2mtf-script.py e_coli.ftbl' at 2021-12-08 13:50:24 Paris, Madrid +0100				
+Id	Comment	Metabolite	Isotopomer	Value
+		Gluc_U	111111	1.0
+		Gluc_1	100000	1.0
+		FTHF_in	0	1.
+		CO2_in	0	1.
+		Acetate	01	0.90
+		Acetate	00	0.05
+		Acetate	11	0.05

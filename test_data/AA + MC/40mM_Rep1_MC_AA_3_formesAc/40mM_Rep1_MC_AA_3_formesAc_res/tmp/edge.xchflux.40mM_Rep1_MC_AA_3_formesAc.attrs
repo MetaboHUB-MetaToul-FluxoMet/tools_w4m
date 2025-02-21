@@ -1,0 +1,197 @@
+xchflux (class=Double)
+Acetate (Aceupt) AcCoA = 0
+Gluc_U (GlucU_upt) Gluc = 0
+Gluc_1 (Gluc1_upt) Gluc = 0
+Gluc (Glucupt) Glc6P = 0
+FTHF_in
+(FTHFupt) FTHF = 0
+CO2_in (CO2upt) CO2 = 0
+Glc6P (pgi) Fru6P = 0.999000000000002
+FruBP (pfk) Fru6P = -4.08911600499628e-15
+FruBP (ald) ald = 0.578884028526027
+ald (ald) DHAP = 0.578884028526027
+ald (ald) GA3P = 0.578884028526027
+DHAP (tpi) GA3P = 0.584425114809986
+GA3P (gdh) BPG = 1.36226481381384e-12
+BPG (pgk) 2PG_3PG = -6.51355903837775e-12
+2PG_3PG (eno) PEP = 0.999000000000014
+PEP (pyk) Pyr = 0.595442395300974
+Glc6P
+(zwf) Gnt6P = 0
+Gnt6P (gnd) gnd = 0
+gnd (gnd) CO2 = 0
+gnd (gnd) Rib5P = 0
+Gnt6P (edd) KDPG = 0
+KDPG (eda) eda = 0
+eda (eda)
+Pyr = 0
+eda (eda) GA3P = 0
+Rib5P (tk1) tk1 = 0.386926767082958
+tk1 (tk1) GA3P = 0.386926767082958
+tk1 (tk1) TKC2 = 0.386926767082958
+Ery4P (tk2) tk2 = 0.0507197519965404
+TKC2 (tk2) tk2 = 0.0507197519965404
+tk2
+(tk2) Fru6P = 0.0507197519965404
+Rib5P (tk3) tk3 = 0.0345084354712506
+TKC2 (tk3) tk3 = 0.0345084354712506
+tk3 (tk3) Sed7P = 0.0345084354712506
+GA3P (ta1) ta1 = 0.0512222976998356
+TAC3 (ta1) ta1 = 0.0512222976998356
+ta1 (ta1)
+Fru6P = 0.0512222976998356
+Sed7P (ta2) ta2 = 0.0918562866944099
+ta2 (ta2) Ery4P = 0.0918562866944099
+ta2 (ta2) TAC3 = 0.0918562866944099
+Pyr (pdh) pdh = 0
+pdh (pdh) AcCoA = 0
+pdh (pdh) CO2 = 0
+AcCoA (citsynth) citsynth = -1.32809644668422e-11
+OAA (citsynth) citsynth = -1.32809644668422e-11
+citsynth (citsynth) ICit = -1.32809644668422e-11
+ICit (idh) idh = -5.24220972847951e-16
+idh (idh) AKG = -5.24220972847951e-16
+idh (idh) CO2 = -5.24220972847951e-16
+AKG (akgdh) akgdh = 0
+akgdh (akgdh) Suc = 0
+akgdh (akgdh) CO2 = 0
+Suc (suc_a) Fum = 0
+Suc (suc_b) Fum = 0
+Fum (fum) Mal = 0.592538974456878
+Mal (maldh) OAA = 0.928386007983163
+PEP (ppc) ppc = -1.84382987618591e-13
+CO2 (ppc) ppc = -1.84382987618591e-13
+ppc (ppc) OAA = -1.84382987618591e-13
+ICit (gs1) gs1 = 0
+gs1 (gs1)
+Glyox = 0
+gs1 (gs1) Suc = 0
+Glyox (gs2) gs2 = 0
+AcCoA (gs2) gs2 = 0
+gs2 (gs2) Mal = 0
+Mal (mae) mae = 0
+mae (mae) Pyr = 0
+mae
+(mae) CO2 = 0
+Glc6P (bs_glc6P) BM_Glc6P = 0
+Fru6P (bs_fru6P) BM_Fru6P = 0
+2PG_3PG (bs_pga) BM_PGA = 0
+BM_PGA (bs_pga_sink)
+PGA_sink = 0
+BM_PGA (bs_pga1) Ser = 0
+Ser (bs_pga1_sink) Ser_sink = 0
+Ser (bs_pga2) Cys = 0
+Cys (bs_pga2_sink) Cys_sink = 0
+Ser (bs_pga3) bs_pga3 = 0.0264370990007871
+bs_pga3 (bs_pga3) Gly = 0.0264370990007871
+bs_pga3 (bs_pga3) FTHF = 0.0264370990007871
+Gly (bs_pga3_sink) Gly_sink = 0
+GA3P
+(bs_DHAP) Glp = 0
+Pyr (bs_pyr) BM_Pyr = 0
+BM_Pyr (bs_pyr1) Ala = 0
+Ala (bs_pyr1_sink) Ala_sink = 0
+BM_Pyr (bs_pyr21)
+bs_pyr2 = 0
+BM_Pyr (bs_pyr22) bs_pyr2 = 0
+bs_pyr2 (bs_pyr2) AKV = 0
+bs_pyr2 (bs_pyr2) CO2 = 0
+AKV (bs_pyr4) Val = 0
+Val
+(bs_pyr4_sink) Val_sink = 0
+AKV (bs_pyr3) bs_pyr3 = 0
+BM_AcCoA (bs_pyr3) bs_pyr3 = 0
+bs_pyr3 (bs_pyr3) Leu = 0
+bs_pyr3
+(bs_pyr3) CO2 = 0
+Leu (bs_pyr3_sink) Leu_sink = 0
+Ery4P (bs_e4p) BM_Ery4P = 0
+Rib5P (bs_rib5p) BM_Rib5P = 0
+BM_Rib5P
+(bs_rib5p1) bs_rib5p1 = 0
+FTHF (bs_rib5p1) bs_rib5p1 = 0
+bs_rib5p1 (bs_rib5p1) His = 0
+His (bs_rib5p1_sink) His_sink = 0
+BM_Rib5P (bs_rib5p2) Ri5P_sink = 0
+PEP (bs_pep) BM_PEP = 0
+BM_PEP (bs_pep1) bs_pep1 = 0
+BM_Ery4P (bs_pep1) bs_pep1 = 0
+bs_pep1 (bs_pep1) DAHP = 0
+BM_PEP (bs_pep2) bs_pep2 = 0
+DAHP (bs_pep2) bs_pep2 = 0
+bs_pep2 (bs_pep2) Chor = 0
+Chor
+(bs_pep3a) bs_pep3a = 0
+bs_pep3a (bs_pep3a) Phe = 0
+bs_pep3a (bs_pep3a) CO2 = 0
+Chor (bs_pep3b) bs_pep3b = 0
+bs_pep3b
+(bs_pep3b) Phe = 0
+bs_pep3b (bs_pep3b) CO2 = 0
+Phe (bs_pep3_sink) Phe_sink = 0
+Chor (bs_pep4a) bs_pep4a = 0
+bs_pep4a
+(bs_pep4a) Tyr = 0
+bs_pep4a (bs_pep4a) CO2 = 0
+Chor (bs_pep4b) bs_pep4b = 0
+bs_pep4b (bs_pep4b) Tyr = 0
+bs_pep4b (bs_pep4b)
+CO2 = 0
+Tyr (bs_pep4_sink) Tyr_sink = 0
+BM_PEP (bs_pep5) PEP_sink = 0
+Chor (bs_pep6) bs_pep6 = 0
+BM_Rib5P (bs_pep6)
+bs_pep6 = 0
+bs_pep6 (bs_pep6) Trp = 0
+bs_pep6 (bs_pep6) PyrCO2 = 0
+Trp (bs_pep6_sink) Trp_sink = 0
+PyrCO2 (bs_pep7)
+bs_pep7 = 0
+bs_pep7 (bs_pep7) Pyr = 0
+bs_pep7 (bs_pep7) CO2 = 0
+AcCoA (bs_accoa) BM_AcCoA = 0
+BM_AcCoA (bs_accoa_sink)
+AcCoA_sink = 0
+AKG (bs_akg) BM_AKG = 0
+BM_AKG (bs_akg1) Glu = 0
+Glu (bs_akg2) Pro = 0
+Pro (bs_akg2_sink) Pro_sink = 0
+Glu
+(bs_akg3) Gln = 0
+Gln (bs_akg3_sink) Gln_Aux = 0
+Glu (bs_akg4) bs_akg4 = 0
+CO2 (bs_akg4) bs_akg4 = 0
+bs_akg4 (bs_akg4) Arg = 0
+Arg (bs_akg4_sink) Arg_sink = 0
+OAA (bs_oaa) BM_OAA = 0
+BM_OAA (bs_oaa1) Asp = 0
+Asp (bs_oaa1_sink) Asp_sink = 0
+Thr
+(bs_oaa2) bs_oaa2 = 0
+BM_Pyr (bs_oaa2) bs_oaa2 = 0
+bs_oaa2 (bs_oaa2) Ile = 0
+bs_oaa2 (bs_oaa2) CO2 = 0
+Ile (bs_oaa2_sink)
+Ile_sink = 0
+BM_OAA (bs_oaa3a) bs_oaa3a = 0
+BM_Pyr (bs_oaa3a) bs_oaa3a = 0
+bs_oaa3a (bs_oaa3a) Lys = 0
+bs_oaa3a (bs_oaa3a)
+CO2 = 0
+BM_OAA (bs_oaa3b) bs_oaa3b = 0
+BM_Pyr (bs_oaa3b) bs_oaa3b = 0
+bs_oaa3b (bs_oaa3b) Lys = 0
+bs_oaa3b (bs_oaa3b) CO2 = 0
+Lys (bs_oaa3_sink) Lys_sink = 0
+BM_OAA (bs_oaa4) OAA_sink = 0
+BM_OAA (bs_oaa5) Thr = 0
+Thr (bs_oaa5_sink) Thr_sink = 0
+BM_OAA (bs_oaa6) bs_oaa6 = 0
+FTHF (bs_oaa6) bs_oaa6 = 0
+bs_oaa6 (bs_oaa6) Met = 0
+Met (bs_oaa6_sink) Met_sink = 0
+BM_OAA
+(bs_oaa7) Asn = 0
+Asn (bs_oaa7_sink) Asn_sink = 0
+CO2 (out_co2) CO2_out = 0
+FTHF (out_FTHF) FTHF_out = 0

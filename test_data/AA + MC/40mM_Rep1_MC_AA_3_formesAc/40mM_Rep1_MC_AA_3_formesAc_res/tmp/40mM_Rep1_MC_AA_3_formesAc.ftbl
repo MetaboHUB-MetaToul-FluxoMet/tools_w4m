@@ -1,0 +1,653 @@
+// Created by 'txt2ftbl --prefix 40mM_Rep1_MC_AA_3_formesAc'
+// Date: 2024-11-06 14:51:06 Paris, Madrid +0100
+// influx_si version: 7.1.0
+// If edited by hand, remove these comments.
+PROJECT
+	NAME	VERSION	FORMAT	DATE	COMMENT
+	40mM_Rep1_MC_AA_3_formesAc.netw	1.0			command='txt2ftbl --prefix 40mM_Rep1_MC_AA_3_formesAc'
+NETWORK
+	FLUX_NAME	EDUCT_1	EDUCT_2	PRODUCT_1	PRODUCT_2
+//# Uptake fluxes
+	Aceupt	Acetate		AcCoA
+		#AB		#AB
+	GlucU_upt	Gluc_U		Gluc
+		#ABCDEF		#ABCDEF
+	Gluc1_upt	Gluc_1		Gluc
+		#ABCDEF		#ABCDEF
+	Glucupt	Gluc		Glc6P
+		#ABCDEF		#ABCDEF
+	FTHFupt	FTHF_in		FTHF
+		#A		#A
+	CO2upt	CO2_in		CO2
+		#A		#A
+//# GLYCOLYSIS
+	pgi	Glc6P		Fru6P
+		#ABCDEF		#ABCDEF
+	pfk	FruBP		Fru6P
+		#ABCDEF		#ABCDEF
+	ald	FruBP		DHAP	GA3P
+		#ABCDEF		#CBA	#DEF
+	tpi	DHAP		GA3P
+		#ABC		#ABC
+	gdh	GA3P		BPG
+		#ABC		#ABC
+	pgk	BPG		2PG_3PG
+		#ABC		#ABC
+	eno	2PG_3PG		PEP
+		#ABC		#ABC
+	pyk	PEP		Pyr
+		#ABC		#ABC
+//# PENTOSES
+	zwf	Glc6P		Gnt6P
+		#ABCDEF		#ABCDEF
+	gnd	Gnt6P		CO2	Rib5P
+		#ABCDEF		#A	#BCDEF
+	edd	Gnt6P		KDPG
+		#ABCDEF		#ABCDEF
+	eda	KDPG		Pyr	GA3P
+		#ABCDEF		#ABC	#DEF
+	tk1	Rib5P		GA3P	TKC2
+		#ABCDE		#CDE	#AB
+	tk2	Ery4P	TKC2	Fru6P	
+		#abcd	#AB	#ABabcd	
+	tk3	Rib5P	TKC2	Sed7P	
+		#ABCDE	#ab	#abABCDE	
+	ta1	GA3P	TAC3	Fru6P	
+		#ABC	#abc	#abcABC	
+	ta2	Sed7P		Ery4P	TAC3
+		#abcdefg		#defg	#abc
+//# TCA
+	pdh	Pyr		AcCoA	CO2
+		#ABC		#BC	#A
+	citsynth	AcCoA	OAA	ICit	
+		#AB	#abcd	#dcbaBA	
+	idh	ICit		AKG	CO2
+		#ABCDEF		#ABCEF	#D
+	akgdh	AKG		Suc	CO2
+		#ABCDE		#BCDE	#A
+	suc_a	Suc		Fum
+		#ABCD		#ABCD
+	suc_b	Suc		Fum
+		#ABCD		#DCBA
+	fum	Fum		Mal
+		#ABCD		#ABCD
+	maldh	Mal		OAA
+		#ABCD		#ABCD
+	ppc	PEP	CO2	OAA	
+		#ABC	#a	#ABCa	
+//# GLYOXYLATE SHUNT
+	gs1	ICit		Glyox	Suc
+		#ABCDEF		#AB	#DCEF
+	gs2	Glyox	AcCoA	Mal	
+		#AB	#ab	#ABba	
+	mae	Mal		Pyr	CO2
+		#ABCD		#ABC	#D
+//# BIOMASS
+	bs_glc6P	Glc6P		BM_Glc6P
+		#ABCDEF		#ABCDEF
+	bs_fru6P	Fru6P		BM_Fru6P
+		#ABCDEF		#ABCDEF
+	bs_pga	2PG_3PG		BM_PGA
+		#ABC		#ABC
+	bs_pga_sink	BM_PGA		PGA_sink
+		#ABC		#ABC
+	bs_pga1	BM_PGA		Ser
+		#ABC		#ABC
+	bs_pga1_sink	Ser		Ser_sink
+		#ABC		#ABC
+	bs_pga2	Ser		Cys
+		#ABC		#ABC
+	bs_pga2_sink	Cys		Cys_sink
+		#ABC		#ABC
+	bs_pga3	Ser		Gly	FTHF
+		#ABC		#AB	#C
+	bs_pga3_sink	Gly		Gly_sink
+		#AB		#AB
+	bs_DHAP	GA3P		Glp
+		#ABC		#ABC
+	bs_pyr	Pyr		BM_Pyr
+		#ABC		#ABC
+	bs_pyr1	BM_Pyr		Ala
+		#ABC		#ABC
+	bs_pyr1_sink	Ala		Ala_sink
+		#ABC		#ABC
+	bs_pyr2	BM_Pyr	BM_Pyr	AKV	CO2
+		#ABC	#abc	#ABbcC	#a
+	bs_pyr4	AKV		Val
+		#ABCDE		#ABCDE
+	bs_pyr4_sink	Val		Val_sink
+		#ABCDE		#ABCDE
+	bs_pyr3	AKV	BM_AcCoA	Leu	CO2
+		#ABCDE	#ab	#abBCDE	#A
+	bs_pyr3_sink	Leu		Leu_sink
+		#ABCDEF		#ABCDEF
+	bs_e4p	Ery4P		BM_Ery4P
+		#ABCD		#ABCD
+	bs_rib5p	Rib5P		BM_Rib5P
+		#ABCDE		#ABCDE
+	bs_rib5p1	BM_Rib5P	FTHF	His	
+		#ABCDE	#a	#EDCBAa	
+	bs_rib5p1_sink	His		His_sink
+		#ABCDEF		#ABCDEF
+	bs_rib5p2	BM_Rib5P		Ri5P_sink
+		#ABCDE		#ABCDE
+	bs_pep	PEP		BM_PEP
+		#ABC		#ABC
+	bs_pep1	BM_PEP	BM_Ery4P	DAHP	
+		#ABC	#abcd	#ABCabcd	
+	bs_pep2	BM_PEP	DAHP	Chor	
+		#ABC	#abcdefg	#ABCabcdefg	
+	bs_pep3a	Chor		Phe	CO2
+		#ABCDEFGHIJ		#ABCEFGHIJ	#D
+	bs_pep3b	Chor		Phe	CO2
+		#ABCDEFGHIJ		#ABCEJIHGF	#D
+	bs_pep3_sink	Phe		Phe_sink
+		#ABCEFGHIJ		#ABCEFGHIJ
+	bs_pep4a	Chor		Tyr	CO2
+		#ABCDEFGHIJ		#ABCEFGHIJ	#D
+	bs_pep4b	Chor		Tyr	CO2
+		#ABCDEFGHIJ		#ABCEJIHGF	#D
+	bs_pep4_sink	Tyr		Tyr_sink
+		#ABCEFGHIJ		#ABCEFGHIJ
+	bs_pep5	BM_PEP		PEP_sink
+		#ABC		#ABC
+	bs_pep6	Chor	BM_Rib5P	Trp	PyrCO2
+		#ABCDEFGHIJ	#abcde	#edcbaJEFGHI	#ABCD
+	bs_pep6_sink	Trp		Trp_sink
+		#ABCDEFGHIJK		#ABCDEFGHIJK
+	bs_pep7	PyrCO2		Pyr	CO2
+		#ABCD		#ABC	#D
+	bs_accoa	AcCoA		BM_AcCoA
+		#AB		#AB
+	bs_accoa_sink	BM_AcCoA		AcCoA_sink
+		#AB		#AB
+	bs_akg	AKG		BM_AKG
+		#ABCDE		#ABCDE
+	bs_akg1	BM_AKG		Glu
+		#ABCDE		#ABCDE
+	bs_akg2	Glu		Pro
+		#ABCDE		#ABCDE
+	bs_akg2_sink	Pro		Pro_sink
+		#ABCDE		#ABCDE
+	bs_akg3	Glu		Gln
+		#ABCDE		#ABCDE
+	bs_akg3_sink	Gln		Gln_Aux
+		#ABCDE		#ABCDE
+	bs_akg4	Glu	CO2	Arg	
+		#ABCDE	#a	#ABCDEa	
+	bs_akg4_sink	Arg		Arg_sink
+		#ABCDEF		#ABCDEF
+	bs_oaa	OAA		BM_OAA
+		#ABCD		#ABCD
+	bs_oaa1	BM_OAA		Asp
+		#ABCD		#ABCD
+	bs_oaa1_sink	Asp		Asp_sink
+		#ABCD		#ABCD
+	bs_oaa2	Thr	BM_Pyr	Ile	CO2
+		#ABCD	#abc	#ABbCDc	#a
+	bs_oaa2_sink	Ile		Ile_sink
+		#ABCDEF		#ABCDEF
+	bs_oaa3a	BM_OAA	BM_Pyr	Lys	CO2
+		#ABCD	#abc	#ABCDcb	#a
+	bs_oaa3b	BM_OAA	BM_Pyr	Lys	CO2
+		#ABCD	#abc	#abcDCB	#A
+	bs_oaa3_sink	Lys		Lys_sink
+		#ABCDEF		#ABCDEF
+	bs_oaa4	BM_OAA		OAA_sink
+		#ABCD		#ABCD
+	bs_oaa5	BM_OAA		Thr
+		#ABCD		#ABCD
+	bs_oaa5_sink	Thr		Thr_sink
+		#ABCD		#ABCD
+	bs_oaa6	BM_OAA	FTHF	Met	
+		#ABCD	#a	#ABCDa	
+	bs_oaa6_sink	Met		Met_sink
+		#ABCDE		#ABCDE
+	bs_oaa7	BM_OAA		Asn
+		#ABCD		#ABCD
+	bs_oaa7_sink	Asn		Asn_sink
+		#ABCD		#ABCD
+//#SORTIES
+	out_co2	CO2		CO2_out
+		#A		#A
+	out_FTHF	FTHF		FTHF_out
+		#A		#A
+NOTRACER_NETWORK
+	FLUX_NAME	EQUATION
+FLUXES
+	NET
+		NAME	FCD	VALUE(F/C)	ED_WEIGHT	LOW(F)	INC(F)	UP(F)
+		Aceupt	F	0.410311   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 9
+		BM	D	0.06   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 2
+		FTHFupt	F	0.2   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 8
+		GlucU_upt	F	0.2   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 5
+		akgdh	D	0.886165   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 30
+		ald	D	0.80841   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 12
+		bs_DHAP	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 49
+		bs_accoa	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 76
+		bs_accoa_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 77
+		bs_akg	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 78
+		bs_oaa	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 86
+		bs_pep	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 63
+		bs_pga	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 41
+		bs_pga_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 42
+		bs_pyr	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 50
+		citsynth	D	1.079155   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 28
+		eda	D	0.0001   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 21
+		edd	D	0.0001   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 20
+		eno	D	1.576336   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 16
+		fum	D	1.076356   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 33
+		gdh	F	1.725028   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 14
+		gnd	D	0.2   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 19
+		idh	D	0.979213   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 29
+		mae	D	0.1   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 38
+		maldh	F	1.076356   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 34
+		out_FTHF	D	0.3   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 132
+		pdh	F	1.102504   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 27
+		pfk	D	0.80841   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 11
+		pgi	F	0.8   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 10
+		pgk	D	1.725028   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 15
+		ppc	D	0.0001   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 37
+		pyk	D	0.248435   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 17
+		suc_a	D	1.014792   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 31
+		suc_b	D	1.014792   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 32
+		tpi	D	0.845769   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 13
+		zwf	D	0.2   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 18
+		bs_akg1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 79
+		bs_akg2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 80
+		bs_akg2_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 81
+		bs_akg3	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 82
+		bs_akg3_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 83
+		bs_akg4	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 84
+		bs_akg4_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 85
+		bs_e4p	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 58
+		bs_fru6P	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 40
+		bs_glc6P	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 39
+		bs_oaa1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 87
+		bs_oaa1_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 88
+		bs_oaa2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 89
+		bs_oaa2_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 90
+		bs_oaa3_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 93
+		bs_oaa3a	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 91
+		bs_oaa3b	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 92
+		bs_oaa4	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 94
+		bs_oaa5	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 95
+		bs_oaa5_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 96
+		bs_oaa6	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 97
+		bs_oaa6_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 98
+		bs_oaa7	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 99
+		bs_oaa7_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 100
+		bs_pep1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 64
+		bs_pep2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 65
+		bs_pep3_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 68
+		bs_pep3a	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 66
+		bs_pep3b	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 67
+		bs_pep4_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 71
+		bs_pep4a	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 69
+		bs_pep4b	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 70
+		bs_pep5	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 72
+		bs_pep6	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 73
+		bs_pep6_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 74
+		bs_pep7	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 75
+		bs_pga1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 43
+		bs_pga1_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 44
+		bs_pga2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 45
+		bs_pga2_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 46
+		bs_pga3	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 47
+		bs_pga3_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 48
+		bs_pyr1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 51
+		bs_pyr1_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 52
+		bs_pyr2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 53
+		bs_pyr3	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 56
+		bs_pyr3_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 57
+		bs_pyr4	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 54
+		bs_pyr4_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 55
+		bs_rib5p	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 59
+		bs_rib5p1	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 60
+		bs_rib5p1_sink	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 61
+		bs_rib5p2	D	   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 62
+		CO2upt	F	1   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 7
+		Gluc1_upt	D	0.8   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 6
+		gs1	D	0.099942   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 35
+		gs2	D	0.1   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 36
+		out_co2	F	4.167423   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 131
+		ta1	D	0.0001   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 25
+		ta2	D	0.0001   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 26
+		tk1	D	0.049588   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 22
+		tk2	D	0.016587   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 23
+		tk3	D	0.049588   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 24
+		Glucupt	D	0.2E0
+	XCH
+		NAME	FCD	VALUE(F/C)	ED_WEIGHT	LOW(F)	INC(F)	UP(F)
+		BM	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 3
+		akgdh	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 122
+		ald	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 104
+		citsynth	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 120
+		eda	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 113
+		edd	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 112
+		eno	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 108
+		fum	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 125
+		gdh	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 106
+		gnd	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 111
+		idh	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 121
+		mae	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 130
+		maldh	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 126
+		pdh	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 119
+		pfk	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 103
+		pgi	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 102
+		pgk	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 107
+		ppc	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 129
+		pyk	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 109
+		suc_a	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 123
+		suc_b	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 124
+		tpi	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 105
+		zwf	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 110
+		bs_pga3	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 101
+		gs1	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 127
+		gs2	C	0   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 128
+		ta1	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 117
+		ta2	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 118
+		tk1	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 114
+		tk2	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 115
+		tk3	F	0.5   // 40mM_Rep1_MC_AA_3_formesAc.tvar: 116
+		Aceupt	C	0
+		GlucU_upt	C	0
+		Gluc1_upt	C	0
+		Glucupt	C	0
+		FTHFupt	C	0
+		CO2upt	C	0
+		bs_glc6P	C	0
+		bs_fru6P	C	0
+		bs_pga	C	0
+		bs_pga_sink	C	0
+		bs_pga1	C	0
+		bs_pga1_sink	C	0
+		bs_pga2	C	0
+		bs_pga2_sink	C	0
+		bs_pga3_sink	C	0
+		bs_DHAP	C	0
+		bs_pyr	C	0
+		bs_pyr1	C	0
+		bs_pyr1_sink	C	0
+		bs_pyr2	C	0
+		bs_pyr4	C	0
+		bs_pyr4_sink	C	0
+		bs_pyr3	C	0
+		bs_pyr3_sink	C	0
+		bs_e4p	C	0
+		bs_rib5p	C	0
+		bs_rib5p1	C	0
+		bs_rib5p1_sink	C	0
+		bs_rib5p2	C	0
+		bs_pep	C	0
+		bs_pep1	C	0
+		bs_pep2	C	0
+		bs_pep3a	C	0
+		bs_pep3b	C	0
+		bs_pep3_sink	C	0
+		bs_pep4a	C	0
+		bs_pep4b	C	0
+		bs_pep4_sink	C	0
+		bs_pep5	C	0
+		bs_pep6	C	0
+		bs_pep6_sink	C	0
+		bs_pep7	C	0
+		bs_accoa	C	0
+		bs_accoa_sink	C	0
+		bs_akg	C	0
+		bs_akg1	C	0
+		bs_akg2	C	0
+		bs_akg2_sink	C	0
+		bs_akg3	C	0
+		bs_akg3_sink	C	0
+		bs_akg4	C	0
+		bs_akg4_sink	C	0
+		bs_oaa	C	0
+		bs_oaa1	C	0
+		bs_oaa1_sink	C	0
+		bs_oaa2	C	0
+		bs_oaa2_sink	C	0
+		bs_oaa3a	C	0
+		bs_oaa3b	C	0
+		bs_oaa3_sink	C	0
+		bs_oaa4	C	0
+		bs_oaa5	C	0
+		bs_oaa5_sink	C	0
+		bs_oaa6	C	0
+		bs_oaa6_sink	C	0
+		bs_oaa7	C	0
+		bs_oaa7_sink	C	0
+		out_co2	C	0
+		out_FTHF	C	0
+METABOLITE_POOLS
+	META_NAME	META_SIZE
+EQUALITIES
+	NET
+		VALUE	FORMULA
+		1	GlucU_upt+Gluc1_upt   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 5
+		0	bs_DHAP-0.1290*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 15
+		0	bs_accoa-2.9538*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 25
+		0	bs_akg-1.0779*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 26
+		0	bs_akg2_sink-0.2100*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 28
+		0	bs_akg3-0.2500*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 27
+		0	bs_fru6P-0.0709*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 10
+		0	bs_glc6P-0.2050*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 9
+		0	bs_oaa-1.7867*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 29
+		0	bs_oaa1_sink-0.2290*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 30
+		0	bs_oaa2_sink-0.2760*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 31
+		0	bs_oaa3_sink-0.3260*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 32
+		0	bs_oaa3a-bs_oaa3b   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 6
+		0	bs_oaa5_sink-0.2410*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 33
+		0	bs_oaa6_sink-0.1460*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 34
+		0	bs_oaa7_sink-0.2290*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 35
+		0	bs_pep-0.7191*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 21
+		0	bs_pep3_sink-0.1760*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 22
+		0	bs_pep3a-bs_pep3b   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 7
+		0	bs_pep4_sink-0.1310*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 23
+		0	bs_pep4a-bs_pep4b   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 8
+		0	bs_pep5-0.0511*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 24
+		0	bs_pga-1.4931*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 11
+		0	bs_pga1_sink-0.2050*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 12
+		0	bs_pga2_sink-0.0870*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 13
+		0	bs_pga3_sink-0.5820*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 14
+		0	bs_pyr-2.8328*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 16
+		0	bs_pyr3_sink-0.4280*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 18
+		0	bs_pyr4_sink-0.4020*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 17
+		0	bs_rib5p-0.8983*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 19
+		0	bs_rib5p1_sink-0.0804*BM   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 20
+		0	suc_a-suc_b   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 3
+	XCH
+		VALUE	FORMULA
+		0	suc_a-suc_b   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 36
+	METAB
+		VALUE	FORMULA
+INEQUALITIES
+	NET
+		VALUE	COMP	FORMULA
+		0	<=	edd   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 38
+		0	<=	gnd   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 39
+		0	<=	gs1   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 42
+		0	<=	mae   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 43
+		0	<=	ppc   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 41
+		1	<=	pyk   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 37
+		0	<=	zwf   // 40mM_Rep1_MC_AA_3_formesAc.cnstr: 40
+	XCH
+		VALUE	COMP	FORMULA
+	METAB
+		VALUE	COMP	FORMULA
+LABEL_INPUT
+	META_NAME	ISOTOPOMER	VALUE
+	Acetate	#01	0.90   // 40mM_Rep1_MC_AA_3_formesAc.linp: 7
+		#00	0.05   // 40mM_Rep1_MC_AA_3_formesAc.linp: 8
+		#11	0.05   // 40mM_Rep1_MC_AA_3_formesAc.linp: 9
+	CO2_in	#0	1.   // 40mM_Rep1_MC_AA_3_formesAc.linp: 6
+	FTHF_in	#0	1.   // 40mM_Rep1_MC_AA_3_formesAc.linp: 5
+	Gluc_1	#100000	1.0   // 40mM_Rep1_MC_AA_3_formesAc.linp: 4
+	Gluc_U	#111111	1.0   // 40mM_Rep1_MC_AA_3_formesAc.linp: 3
+FLUX_MEASUREMENTS
+	FLUX_NAME	VALUE	DEVIATION
+	Aceupt	0.235502115	0.073676334   // 40mM_Rep1_MC_AA_3_formesAc.mflux: 2
+	BM	0.055353226	0.002265278   // 40mM_Rep1_MC_AA_3_formesAc.mflux: 3
+LABEL_MEASUREMENTS
+	META_NAME	CUM_GROUP	VALUE	DEVIATION	CUM_CONSTRAINTS
+PEAK_MEASUREMENTS
+	META_NAME	PEAK_NO	VALUE_S	VALUE_D-	VALUE_D+	VALUE_DD	VALUE_T	DEVIATION_S	DEVIATION_D-	DEVIATION_D+	DEVIATION_DD/T
+MASS_SPECTROMETRY
+	META_NAME	FRAGMENT	WEIGHT	VALUE	DEVIATION
+	2PG_3PG		0	0.439629412	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 2
+			1	0.370986761	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 3
+			2	0.010744137	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 4
+			3	0.17863969	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 5
+	Ala		0	0.444498388	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 67
+			1	0.346215891	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 68
+			2	0.028652152	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 69
+			3	0.180633569	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 70
+	Arg		0	0.028751763	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 71
+			1	0.133939697	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 72
+			2	0.292151516	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 73
+			3	0.324932081	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 74
+			4	0.181701266	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 75
+			5	0.038523677	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 76
+			6	0	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 77
+	Asp		0	0.132280239	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 78
+			1	0.271293172	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 79
+			2	0.30148899	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 80
+			3	0.264480307	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 81
+			4	0.030457293	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 82
+	Fru6P		0	0.001564767	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 6
+			1	0.764381585	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 7
+			2	0.01391502	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 8
+			3	0.011677628	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 9
+			4	0.018498137	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 10
+			5	0.012398867	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 11
+			6	0.177563998	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 12
+	FruBP		0	0.073359225	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 13
+			1	0.496988815	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 14
+			2	0.139093558	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 15
+			3	0.091755263	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 16
+			4	0.100147024	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 17
+			5	0.010097939	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 18
+			6	0.088558176	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 19
+	Fum		0	0.109430287	0.03065206   // 40mM_Rep1_MC_AA_3_formesAc.miso: 20
+			1	0.18775845	0.022667414   // 40mM_Rep1_MC_AA_3_formesAc.miso: 21
+			2	0.350182949	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 22
+			3	0.304805386	0.02528373   // 40mM_Rep1_MC_AA_3_formesAc.miso: 23
+			4	0.047822928	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 24
+	Glc6P		0	0.002988282	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 25
+			1	0.737053242	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 26
+			2	0.045137776	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 27
+			3	0.005010516	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 28
+			4	0.021012621	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 29
+			5	0.003005166	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 30
+			6	0.185792396	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 31
+	Glu		0	0.026758743	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 83
+			1	0.172885458	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 84
+			2	0.331399032	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 85
+			3	0.321685918	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 86
+			4	0.1382337	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 87
+			5	0.00903715	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 88
+	Gly		0	0.773605452	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 89
+			1	0.04838503	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 90
+			2	0.178009517	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 91
+	His		0	0.151845836	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 92
+			1	0.28709376	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 93
+			2	0.233669219	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 94
+			3	0.155459935	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 95
+			4	0.092416532	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 96
+			5	0.05417966	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 97
+			6	0.025335058	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 98
+	ICit		0	0.061005336	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 32
+			1	0.128462041	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 33
+			2	0.25050557	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 34
+			3	0.294975352	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 35
+			4	0.230670281	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 36
+			5	0.03438142	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 37
+			6	0	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 38
+	Ile		0	0.091304534	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 99
+			1	0.171351572	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 100
+			2	0.2494983	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 101
+			3	0.270284392	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 102
+			4	0.158994418	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 103
+			5	0.056065274	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 104
+			6	0.00250151	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 105
+	Lys		0	0.074078743	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 106
+			1	0.184692135	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 107
+			2	0.270117863	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 108
+			3	0.253704828	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 109
+			4	0.14339989	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 110
+			5	0.059901327	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 111
+			6	0.014105214	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 112
+	Mal		0	0.112116162	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 39
+			1	0.231562339	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 40
+			2	0.329923101	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 41
+			3	0.295504654	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 42
+			4	0.030893743	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 43
+	Met		0	0.078529361	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 113
+			1	0.204755544	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 114
+			2	0.287069051	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 115
+			3	0.274277217	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 116
+			4	0.145646009	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 117
+			5	0.009722818	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 118
+	PEP		0	0.416266538	0.023421727   // 40mM_Rep1_MC_AA_3_formesAc.miso: 44
+			1	0.349484257	0.021046456   // 40mM_Rep1_MC_AA_3_formesAc.miso: 45
+			2	0.056496356	0.05451521   // 40mM_Rep1_MC_AA_3_formesAc.miso: 46
+			3	0.17775285	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 47
+	Phe		0	0.130486131	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 119
+			1	0.225781758	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 120
+			2	0.201885567	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 121
+			3	0.153376782	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 122
+			4	0.124581884	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 123
+			5	0.083945714	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 124
+			6	0.045060009	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 125
+			7	0.023241892	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 126
+			8	0.009866784	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 127
+			9	0.00177348	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 128
+	Pro		0	0.031611873	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 129
+			1	0.172230692	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 130
+			2	0.329506758	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 131
+			3	0.319738086	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 132
+			4	0.137655634	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 133
+			5	0.009256957	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 134
+	Rib5P		0	0.251664022	0.067303132   // 40mM_Rep1_MC_AA_3_formesAc.miso: 48
+			1	0.325734335	0.020049659   // 40mM_Rep1_MC_AA_3_formesAc.miso: 49
+			2	0.206623562	0.032353932   // 40mM_Rep1_MC_AA_3_formesAc.miso: 50
+			3	0.108581709	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 51
+			4	0.058827621	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 52
+			5	0.048568753	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 53
+	Sed7P		0	0.099796476	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 54
+			1	0.346044835	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 55
+			2	0.206518179	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 56
+			3	0.161424288	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 57
+			4	0.098779937	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 58
+			5	0.076973597	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 59
+			6	0.009535644	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 60
+			7	0.000927043	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 61
+	Ser		0	0.401836948	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 135
+			1	0.394499938	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 136
+			2	0.052617324	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 137
+			3	0.151045791	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 138
+	Suc		0	0.08103908	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 62
+			1	0.197229754	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 63
+			2	0.374956195	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 64
+			3	0.320333321	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 65
+			4	0.02644165	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 66
+	Thr		0	0.13450218	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 139
+			1	0.278862803	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 140
+			2	0.292816659	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 141
+			3	0.26587105	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 142
+			4	0.027947307	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 143
+	Tyr		0	0.11410775	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 144
+			1	0.216949043	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 145
+			2	0.20402925	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 146
+			3	0.166934272	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 147
+			4	0.131590712	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 148
+			5	0.093640324	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 149
+			6	0.045184983	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 150
+			7	0.019774564	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 151
+			8	0.007613909	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 152
+			9	0.000175193	0.02   // 40mM_Rep1_MC_AA_3_formesAc.miso: 153
+METAB_MEASUREMENTS
+	META_NAME	VALUE	DEVIATION
+OPTIONS
+	OPT_NAME	OPT_VALUE
+	commandArgs	--noscale --zc=1e-3 --clownr=1e-3 --ln

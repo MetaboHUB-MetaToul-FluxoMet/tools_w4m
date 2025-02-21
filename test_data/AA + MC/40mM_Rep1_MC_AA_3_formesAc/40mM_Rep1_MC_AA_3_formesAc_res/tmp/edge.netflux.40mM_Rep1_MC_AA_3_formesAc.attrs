@@ -1,0 +1,197 @@
+netflux (class=Double)
+Acetate (Aceupt) AcCoA = 0.56250724737622
+Gluc_U (GlucU_upt) Gluc = 0.192871772262398
+Gluc_1 (Gluc1_upt) Gluc = 0.807128227737602
+Gluc (Glucupt) Glc6P = 1
+FTHF_in
+(FTHFupt) FTHF = 0.00840568523663117
+CO2_in (CO2upt) CO2 = 14.1809427248285
+Glc6P (pgi) Fru6P = 0.899091728594767
+FruBP (pfk) Fru6P = -0.913722943683516
+FruBP (ald) ald = 0.913722943683516
+ald (ald) DHAP = 0.913722943683516
+ald (ald) GA3P = 0.913722943683516
+DHAP (tpi) GA3P = 0.913722943683515
+GA3P (gdh) BPG = 1.82100621544489
+BPG (pgk) 2PG_3PG = 1.82100621544489
+2PG_3PG (eno) PEP = 1.736450054357
+PEP (pyk) Pyr = 1.39187253911042
+Glc6P
+(zwf) Gnt6P = 0.0892988594281262
+Gnt6P (gnd) gnd = 0.0882988594281293
+gnd (gnd) CO2 = 0.0882988594281293
+gnd (gnd) Rib5P = 0.0882988594281293
+Gnt6P (edd) KDPG = 0.000999999999996492
+KDPG (eda) eda = 0.000999999999996047
+eda (eda)
+Pyr = 0.000999999999996047
+eda (eda) GA3P = 0.000999999999996047
+Rib5P (tk1) tk1 = 0.0186463726944897
+tk1 (tk1) GA3P = 0.0186463726944897
+tk1 (tk1) TKC2 = 0.0186463726944897
+Ery4P (tk2) tk2 = -0.000134237068250949
+TKC2 (tk2) tk2 = -0.000134237068250949
+tk2
+(tk2) Fru6P = -0.000134237068250949
+Rib5P (tk3) tk3 = 0.0187806097627403
+TKC2 (tk3) tk3 = 0.0187806097627403
+tk3 (tk3) Sed7P = 0.0187806097627403
+GA3P (ta1) ta1 = 0.0187806097627403
+TAC3 (ta1) ta1 = 0.0187806097627403
+ta1 (ta1)
+Fru6P = 0.0187806097627403
+Sed7P (ta2) ta2 = 0.0187806097627405
+ta2 (ta2) Ery4P = 0.0187806097627405
+ta2 (ta2) TAC3 = 0.0187806097627405
+Pyr (pdh) pdh = 1.37660450397788
+pdh (pdh) AcCoA = 1.37660450397788
+pdh (pdh) CO2 = 1.37660450397788
+AcCoA (citsynth) citsynth = 1.77083428258348
+OAA (citsynth) citsynth = 1.77083428258348
+citsynth (citsynth) ICit = 1.77083428258348
+ICit (idh) idh = 1.76983428258349
+idh (idh) AKG = 1.76983428258349
+idh (idh) CO2 = 1.76983428258349
+AKG (akgdh) akgdh = 1.70879142809508
+akgdh (akgdh) Suc = 1.70879142809508
+akgdh (akgdh) CO2 = 1.70879142809508
+Suc (suc_a) Fum = 0.854895714047541
+Suc (suc_b) Fum = 0.85489571404754
+Fum (fum) Mal = 1.70979142809508
+Mal (maldh) OAA = 1.5681634235917
+PEP (ppc) ppc = 0.303853963282008
+CO2 (ppc) ppc = 0.303853963282008
+ppc (ppc) OAA = 0.303853963282008
+ICit (gs1) gs1 = 0.00099999999999681
+gs1 (gs1)
+Glyox = 0.00099999999999681
+gs1 (gs1) Suc = 0.00099999999999681
+Glyox (gs2) gs2 = 0.000999999999997433
+AcCoA (gs2) gs2 = 0.000999999999997433
+gs2 (gs2) Mal = 0.000999999999997433
+Mal (mae) mae = 0.142628004503381
+mae (mae) Pyr = 0.142628004503381
+mae
+(mae) CO2 = 0.142628004503381
+Glc6P (bs_glc6P) BM_Glc6P = 0.0116094119771061
+Fru6P (bs_fru6P) BM_Fru6P = 0.00401515760574052
+2PG_3PG (bs_pga) BM_PGA = 0.0845561610878884
+BM_PGA (bs_pga_sink)
+PGA_sink = 0.0350604241708606
+BM_PGA (bs_pga1) Ser = 0.0494957369170276
+Ser (bs_pga1_sink) Ser_sink = 0.0116094119771061
+Ser (bs_pga2) Cys = 0.004926921180528
+Cys (bs_pga2_sink) Cys_sink = 0.00492692118052805
+Ser (bs_pga3) bs_pga3 = 0.0329594037593932
+bs_pga3 (bs_pga3) Gly = 0.0329594037593932
+bs_pga3 (bs_pga3) FTHF = 0.0329594037593932
+Gly (bs_pga3_sink) Gly_sink = 0.0329594037593939
+GA3P
+(bs_DHAP) Glp = 0.00730543485388606
+Pyr (bs_pyr) BM_Pyr = 0.160425084140225
+BM_Pyr (bs_pyr1) Ala = 0.032325133446496
+Ala (bs_pyr1_sink) Ala_sink = 0.0323251334464964
+BM_Pyr (bs_pyr21)
+bs_pyr2 = 0.0470039606877964
+BM_Pyr (bs_pyr22) bs_pyr2 = 0.0470039606877964
+bs_pyr2 (bs_pyr2) AKV = 0.0470039606877964
+bs_pyr2 (bs_pyr2) CO2 = 0.0470039606877964
+AKV (bs_pyr4) Val = 0.0227657737307159
+Val
+(bs_pyr4_sink) Val_sink = 0.0227657737307156
+AKV (bs_pyr3) bs_pyr3 = 0.0242381869570807
+BM_AcCoA (bs_pyr3) bs_pyr3 = 0.0242381869570807
+bs_pyr3 (bs_pyr3) Leu = 0.0242381869570807
+bs_pyr3
+(bs_pyr3) CO2 = 0.0242381869570807
+Leu (bs_pyr3_sink) Leu_sink = 0.0242381869570804
+Ery4P (bs_e4p) BM_Ery4P = 0.018914846830992
+Rib5P (bs_rib5p) BM_Rib5P = 0.0508718769708993
+BM_Rib5P
+(bs_rib5p1) bs_rib5p1 = 0.00455315474614258
+FTHF (bs_rib5p1) bs_rib5p1 = 0.00455315474614258
+bs_rib5p1 (bs_rib5p1) His = 0.00455315474614258
+His (bs_rib5p1_sink) His_sink = 0.00455315474614284
+BM_Rib5P (bs_rib5p2) Ri5P_sink = 0.0447896777204565
+PEP (bs_pep) BM_PEP = 0.0407235519645704
+BM_PEP (bs_pep1) bs_pep1 = 0.0189148468309922
+BM_Ery4P (bs_pep1) bs_pep1 = 0.0189148468309922
+bs_pep1 (bs_pep1) DAHP = 0.0189148468309922
+BM_PEP (bs_pep2) bs_pep2 = 0.018914846830992
+DAHP (bs_pep2) bs_pep2 = 0.018914846830992
+bs_pep2 (bs_pep2) Chor = 0.018914846830992
+Chor
+(bs_pep3a) bs_pep3a = 0.00498355245846537
+bs_pep3a (bs_pep3a) Phe = 0.00498355245846537
+bs_pep3a (bs_pep3a) CO2 = 0.00498355245846537
+Chor (bs_pep3b) bs_pep3b = 0.00498355245846516
+bs_pep3b
+(bs_pep3b) Phe = 0.00498355245846516
+bs_pep3b (bs_pep3b) CO2 = 0.00498355245846516
+Phe (bs_pep3_sink) Phe_sink = 0.00996710491693023
+Chor (bs_pep4a) bs_pep4a = 0.00370934870488041
+bs_pep4a
+(bs_pep4a) Tyr = 0.00370934870488041
+bs_pep4a (bs_pep4a) CO2 = 0.00370934870488041
+Chor (bs_pep4b) bs_pep4b = 0.00370934870488036
+bs_pep4b (bs_pep4b) Tyr = 0.00370934870488036
+bs_pep4b (bs_pep4b)
+CO2 = 0.00370934870488036
+Tyr (bs_pep4_sink) Tyr_sink = 0.00741869740976037
+BM_PEP (bs_pep5) PEP_sink = 0.00289385830258593
+Chor (bs_pep6) bs_pep6 = 0.00152904450430064
+BM_Rib5P (bs_pep6)
+bs_pep6 = 0.00152904450430064
+bs_pep6 (bs_pep6) Trp = 0.00152904450430064
+bs_pep6 (bs_pep6) PyrCO2 = 0.00152904450430064
+Trp (bs_pep6_sink) Trp_sink = 0.00152904450430074
+PyrCO2 (bs_pep7)
+bs_pep7 = 0.001529044504301
+bs_pep7 (bs_pep7) Pyr = 0.001529044504301
+bs_pep7 (bs_pep7) CO2 = 0.001529044504301
+AcCoA (bs_accoa) BM_AcCoA = 0.167277468770615
+BM_AcCoA (bs_accoa_sink)
+AcCoA_sink = 0.143039281813534
+AKG (bs_akg) BM_AKG = 0.0610428544884028
+BM_AKG (bs_akg1) Glu = 0.0610428544884028
+Glu (bs_akg2) Pro = 0.0118925683667913
+Pro (bs_akg2_sink) Pro_sink = 0.0118925683667915
+Glu
+(bs_akg3) Gln = 0.0141578194842755
+Gln (bs_akg3_sink) Gln_Aux = 0.0141578194842753
+Glu (bs_akg4) bs_akg4 = 0.0349924666373362
+CO2 (bs_akg4) bs_akg4 = 0.0349924666373362
+bs_akg4 (bs_akg4) Arg = 0.0349924666373362
+Arg (bs_akg4_sink) Arg_sink = 0.0349924666373368
+OAA (bs_oaa) BM_OAA = 0.101183104290222
+BM_OAA (bs_oaa1) Asp = 0.0129685626475969
+Asp (bs_oaa1_sink) Asp_sink = 0.0129685626475967
+Thr
+(bs_oaa2) bs_oaa2 = 0.0156302327106407
+BM_Pyr (bs_oaa2) bs_oaa2 = 0.0156302327106407
+bs_oaa2 (bs_oaa2) Ile = 0.0156302327106407
+bs_oaa2 (bs_oaa2) CO2 = 0.0156302327106407
+Ile (bs_oaa2_sink)
+Ile_sink = 0.0156302327106403
+BM_OAA (bs_oaa3a) bs_oaa3a = 0.00923089830374779
+BM_Pyr (bs_oaa3a) bs_oaa3a = 0.00923089830374779
+bs_oaa3a (bs_oaa3a) Lys = 0.00923089830374779
+bs_oaa3a (bs_oaa3a)
+CO2 = 0.00923089830374779
+BM_OAA (bs_oaa3b) bs_oaa3b = 0.0092308983037476
+BM_Pyr (bs_oaa3b) bs_oaa3b = 0.0092308983037476
+bs_oaa3b (bs_oaa3b) Lys = 0.0092308983037476
+bs_oaa3b (bs_oaa3b) CO2 = 0.0092308983037476
+Lys (bs_oaa3_sink) Lys_sink = 0.0184617966074954
+BM_OAA (bs_oaa4) OAA_sink = 0.019237645115232
+BM_OAA (bs_oaa5) Thr = 0.0292783706934827
+Thr (bs_oaa5_sink) Thr_sink = 0.0136481379828418
+BM_OAA (bs_oaa6) bs_oaa6 = 0.00826816657881765
+FTHF (bs_oaa6) bs_oaa6 = 0.00826816657881765
+bs_oaa6 (bs_oaa6) Met = 0.00826816657881765
+Met (bs_oaa6_sink) Met_sink = 0.00826816657881698
+BM_OAA
+(bs_oaa7) Asn = 0.0129685626475971
+Asn (bs_oaa7_sink) Asn_sink = 0.0129685626475966
+CO2 (out_co2) CO2_out = 19.0525023972911
+FTHF (out_FTHF) FTHF_out = 0.0285437676710637

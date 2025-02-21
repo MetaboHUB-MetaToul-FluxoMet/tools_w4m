@@ -1,0 +1,86 @@
+"C:\Users\legregam\AppData\Local\miniconda3\envs\influx_si\Lib\site-packages\influx_si\influx_s.py" "--prefix" "40mM_Rep1_MC_AA_3_formesAc"
+code gen: 2024-11-06 14:51:06
+***Warning: in EQUALITIES/XCH section, the formula '0=suc_a-suc_b' involves only constrained flux(es).
+The equality is ignored as meaningless (.\40mM_Rep1_MC_AA_3_formesAc.ftbl: 461).
+executing: --vanilla --slave < 40mM_Rep1_MC_AA_3_formesAc.R"
+calcul  : 2024-11-06 14:51:07
+Starting point
+The following 2 inequalities are not respected at starting point:
+n:0<=edd	-0.0393918206296804
+d.n.eda>=0.001	-0.0403918206296807
+The following 1 zerocross inequalities are redundant and are removed:
+zc d.n.bs_pga3>=0.001
+it=0	res=43.2346
+it=1	res=23.82471	normstep=3.546611	btk=1
+it=2	res=20.08846	normstep=32.63174	btk=1
+it=3	res=13.6652	normstep=33.00575	btk=1
+it=4	res=13.14734	normstep=5.928898	btk=0.015625
+it=5	res=12.48915	normstep=2.970573	btk=1
+it=6	res=12.18285	normstep=0.7331222	btk=1
+it=7	res=12.08399	normstep=2.787212	btk=0.0625
+it=8	res=11.90472	normstep=1.342652	btk=1
+it=9	res=11.83816	normstep=0.459831	btk=1
+it=10	res=11.83177	normstep=0.2084949	btk=1
+it=20	res=11.83085	normstep=0.001445174	btk=1
+it=30	res=11.83085	normstep=2.362905e-05	btk=0.0002850679
+it=36	res=11.83085	normstep=7.630216e-06	btk=1e-07
+***Warning: in first optimization pass in run : 
+lsi_ln: Rank deficient matrix in least squares
+3 free variable(s):
+f.x.pgk	20
+f.x.citsynth	12
+f.x.gdh	15
+Least L2-norm solution is provided.
+nlsic: Maximal backtrack iteration number is achieved
+The following inequalities are active after first pass
+   of zero crossing strategy and will be inverted:
+zc d.n.tk2>=0.001
+Second zero crossing pass
+it=0	res=11.87337
+it=1	res=11.8305	normstep=0.3201937	btk=1
+it=2	res=11.83021	normstep=0.02147568	btk=1
+it=3	res=11.8302	normstep=0.06912179	btk=1
+it=4	res=11.8302	normstep=0.04658468	btk=1
+it=5	res=11.8302	normstep=0.02224575	btk=1
+it=6	res=11.8302	normstep=0.01296362	btk=1
+it=7	res=11.8302	normstep=0.006044227	btk=1
+it=8	res=11.8302	normstep=0.003374718	btk=1
+it=9	res=11.8302	normstep=0.001605344	btk=1
+it=10	res=11.8302	normstep=0.0008715685	btk=1
+it=20	res=11.8302	normstep=1.506701e-05	btk=0.0625
+it=23	res=11.8302	normstep=8.533053e-06	btk=0.25
+***Warning: second zero crossing pass: 
+lsi_ln: Rank deficient matrix in least squares
+3 free variable(s):
+f.x.gdh	15
+f.x.citsynth	12
+f.x.pgk	20
+Least L2-norm solution is provided.
+Last zero crossing pass (free of zc constraints)
+it=0	res=11.8302
+it=1	res=11.82934	normstep=0.0502029	btk=1
+it=2	res=11.82931	normstep=0.1354938	btk=1
+it=3	res=11.82931	normstep=0.05454977	btk=1
+it=4	res=11.82931	normstep=0.02545805	btk=1
+it=5	res=11.82931	normstep=0.0137313	btk=1
+it=6	res=11.82931	normstep=0.006492825	btk=1
+it=7	res=11.82931	normstep=0.003542692	btk=1
+it=8	res=11.82931	normstep=0.001717059	btk=1
+it=9	res=11.82931	normstep=0.0009279924	btk=1
+it=10	res=11.82931	normstep=0.0004575863	btk=1
+it=20	res=11.82931	normstep=1.518616e-05	btk=1e-07
+***Warning: last zero crossing (free of zc): nlsic: LSI returned not descending direction
+
+lsi_ln: Rank deficient matrix in least squares
+3 free variable(s):
+f.x.gdh	15
+f.x.citsynth	12
+f.x.pgk	20
+Least L2-norm solution is provided.
+***Warning: inverse of covariance matrix is numerically singular.
+Statistically undefined parameter(s) seems to be:
+f.x.citsynth
+f.x.gdh
+f.x.pgk
+For a more complete list, see SD column in '.tvar.sim' result file.
+end     : 2024-11-06 14:51:16
