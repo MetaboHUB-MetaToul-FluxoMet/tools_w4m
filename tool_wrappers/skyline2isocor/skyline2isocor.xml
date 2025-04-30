@@ -14,7 +14,7 @@
     <outputs>
         <data format='txt' name='stdout' label='Log'/>
         <data format='txt' name='stderr' label='Error log' />
-        <data format='tabular,txt' name='isocor_input' label='IsoCor input file' />
+        <data format='tabular' name='isocor_input' label='IsoCor input file' />
     </outputs>
     <tests>
         <test>
