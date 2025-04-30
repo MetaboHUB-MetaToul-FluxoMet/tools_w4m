@@ -15,12 +15,14 @@
     --data $datafile 
     -or '$recap' 
     -oz $zip 
+    $verbose
     2> $log 
     ]]>
     </command>
     <inputs>
         <param name='datafile' type='data' format='tabular, txt' multiple='true' label='Upload data file containing biomass and concentration values'/>
         <param name='configfile' type='data' format='yaml' multiple='true' label='Upload yaml configuration file containing run parameters'/>
+        <param name='verbose' type='boolean' truevalue='--debug_mode' falsevalue='' label='Debug mode' help='Select "Yes" to have debug logs be printed out'/>
     </inputs>
     <outputs>
         <data name='recap' label='Summary file' format='csv'/>
