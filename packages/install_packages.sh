@@ -23,9 +23,16 @@ for repo in "${repos[@]}"; do
         echo "Updating submodule $repo_name..."
         git submodule update --remote "$repo_name"
     else
-        echo "Adding submodule $repo_name..."
-        git submodule add "$repo" "$repo_name"
+        echo "Checking if $repo_name already exists in index..."
+        
+        # Check if path already exists in the index
+        if git ls-files --error-unmatch "$repo_name" &>/dev/null; then
+            echo "Warning: $repo_name already exists in the index. Skipping submodule addition."
+        else
+            echo "Adding submodule $repo_name..."
+            git submodule add "$repo" "$repo_name"
         git submodule update --init --recursive "$repo_name"
+        fi
     fi
 done
 
