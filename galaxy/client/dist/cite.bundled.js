@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_galaxyproject_galaxy_client=self.webpackChunk_galaxyproject_galaxy_client||[]).push([[637],{32571:(e,a,c)=>{c.r(a),c.d(a,{Cite:()=>l.lK});c(35978),c(94202);var l=c(61820);l.Gr.config.get("@bibtex"),l.Gr.config.get("@csl")}}]);
+//# sourceMappingURL=cite.bundled.js.map
