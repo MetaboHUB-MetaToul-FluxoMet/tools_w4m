@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH='/home/llegregam/Documents/Projects/tools_w4m/galaxy/.venv/lib/node_modules'
+export NPM_CONFIG_PREFIX='/home/llegregam/Documents/Projects/tools_w4m/galaxy/.venv'
+export npm_config_prefix='/home/llegregam/Documents/Projects/tools_w4m/galaxy/.venv'
+exec '/home/llegregam/Documents/Projects/tools_w4m/galaxy/.venv/bin/node' "$@"

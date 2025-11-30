@@ -1,0 +1,3 @@
+#!/home/llegregam/Documents/Projects/tools_w4m/galaxy/.venv/bin/python3
+from Cheetah.CheetahWrapper import _cheetah
+_cheetah()
