@@ -19,3 +19,7 @@
 [submodule "packages/Skyline2IsoCor"]
 	path = packages/Skyline2IsoCor
 	url = https://github.com/MetaboHUB-MetaToul-FluxoMet/Skyline2IsoCor.git
+[submodule "galaxy"]
+	path = galaxy
+	url = https://github.com/galaxyproject/galaxy.git
+	branch = release_25.0
