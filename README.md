@@ -1,27 +1,46 @@
-# Welcome to the Galaxy Fluxomics workflow project!
+## Overview
 
-This guide will help you install a local deployment of the Galaxy fluxomics workflow evelopped by the MetaboHUB-MetaToul-FluxoMet & MetaSys teams from the Toulouse Biotechnology Institute. It is meant for development and maintainance purposes. This guide assumes you have some working knowledge of git, bash and the galaxy workflow manager. You must have Python 3 installed on your system (see python.org for information on how to install Python).
+This guide will help you install a local deployment of the Galaxy fluxomics workflow developed by the MetaboHUB-MetaToul-FluxoMet & MetaSys teams from the Toulouse Biotechnology Institute. It is intended for development and maintenance purposes.
 
-This project is built on several separate python tools. To ensure ease of maintainance, git submodules are used to be able to easily switch between worklow-level development and specific tool development. More information on git submodules can be found here: https://git-scm.com/book/en/v2/Git-Tools-Submodules and here: https://github.blog/open-source/git/working-with-submodules/.
+### Prerequisites
 
-Lastly, the galaxy instance is meant to run on linux machines. If you are running Windows, it will not work, and it has not been tested on MacOS in the scope of this project. It is thus recommended to run this workflow on a linux system (fully fledged or Virtual Machine).
+- Working knowledge of Git, Bash, and the Galaxy workflow manager
+- Python 3 installed on your system (see [python.org](https://python.org) for installation instructions)
+- A Linux system (fully fledged or Virtual Machine)
+    - **Note:** The Galaxy instance is designed to run on Linux machines. It will not work on Windows and has not been tested on macOS.
 
-# Getting started
+### Project Structure
 
-The first step is to clone the repository onto your local machine:
+This project is built on several separate Python tools. Git submodules are used to facilitate easy switching between workflow-level development and specific tool development. For more information on Git submodules, see:
+- [Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- [Working with Submodules](https://github.blog/open-source/git/working-with-submodules/)
 
+## Getting Started
+
+### Clone the Repository
+
+```bash
 git clone https://github.com/MetaboHUB-MetaToul-FluxoMet/tools_w4m.git
-
-Navigate to the cloned folder:
-
 cd tools_w4m
+```
 
-A few folders are present in the repository. The Galaxy folder is a git submodule linked to the main galaxy  repository. The commit identifier that references the version that was cloned can be found in the GitHub repository online 
+### Repository Structure
 
-## Run the install script for the tool packages
+The repository contains the following directories:
 
-The next step is to download the latest versions of the tools used in the workflow and install them into the galaxy virtual environment. This is done through the "install_packages.sh" script found in the 
+- **Galaxy**: A Git submodule linked to the main Galaxy repository (currently linked to the 25.0 release). The commit number references the downloaded submodule version.
+- **packages**: Contains submodules for each individual tool in the workflow, as well as scripts for updating submodules and installing tools into the Galaxy virtual environment.
+- **test-data**: Contains test data for the workflow.
+- **tool_wrappers**: Contains XML files for configuring tool execution and GUI display.
 
+### Install Tool Packages
+
+Run the installation script to download the latest versions of the workflow tools and install them into the Galaxy virtual environment:
+
+```bash
+cd packages
+sh ./install_packages.sh
+```
 
 
 
