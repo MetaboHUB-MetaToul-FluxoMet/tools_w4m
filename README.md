@@ -42,5 +42,21 @@ cd packages
 sh ./install_packages.sh
 ```
 
+This will install the different software into the galaxy .venv, which can be found at ./galaxy/.venv/.
+
+### Install the wrappers and make the tools visible by galaxy
+
+The next step is to ensure Galaxy has access to the tool XML wrappers. This can be done by following the steps found [here](https://galaxyproject.org/admin/tools/add-tool-tutorial/). The actual tool code is not needed to be copied into the tools directory as it is already installed within the galaxy venv. The most importat step is to make Galaxy aware of the tools by adding them to the tool_conf.xml file.
+
+### Run galaxy
+
+You can now launch the galaxy instance with:
+
+```bash
+sh ./galaxy/run.sh
+```
+
+
+
 
 
