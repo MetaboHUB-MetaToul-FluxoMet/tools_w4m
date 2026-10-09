@@ -4,7 +4,7 @@ This guide covers the tooling used to work on the fluxomics tools and their Gala
 
 ### Development Environment
 
-The development tools (planemo, pytest, shellcheck) live in their own conda environment, separate from Galaxy's virtualenv:
+The development tools (planemo, pytest, shellcheck, and jq for `tool_wrappers/run_tests.sh`) live in their own conda environment, separate from Galaxy's virtualenv:
 
 ```bash
 mamba env create -f environment-dev.yml

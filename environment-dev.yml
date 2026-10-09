@@ -9,6 +9,7 @@ dependencies:
   - planemo
   - pytest
   - shellcheck
+  - jq
   - pip
   - pip:
       # Needed by planemo's EDAM lint checks; not available on conda
