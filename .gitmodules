@@ -24,3 +24,7 @@
 	path = galaxy
 	url = https://github.com/galaxyproject/galaxy.git
 	branch = release_25.0
+[submodule "tools-metabolomics"]
+	path = tools-metabolomics
+	url = https://github.com/llegregam/tools-metabolomics.git
+	branch = master

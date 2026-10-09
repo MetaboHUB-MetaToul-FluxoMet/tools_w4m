@@ -1,0 +1,16 @@
+# Development tools for tools_w4m, kept separate from Galaxy's own virtualenv.
+# Create with: mamba env create -f environment-dev.yml
+name: tools_w4m-dev
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - planemo
+  - pytest
+  - shellcheck
+  - jq
+  - pip
+  - pip:
+      # Needed by planemo's EDAM lint checks; not available on conda
+      - edam-ontology

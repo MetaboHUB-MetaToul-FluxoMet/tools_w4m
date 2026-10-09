@@ -1,10 +1,15 @@
 #!/bin/bash
+set -uo pipefail
 
-# Install jq if it is not already installed
+# Run from the script location, so it can be launched from anywhere
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+galaxy_root=$(cd "$script_dir/../galaxy" && pwd)
+cd "$script_dir" || exit 1
+
+# jq is needed to read the planemo test results
 if ! command -v jq &> /dev/null; then
-  echo "jq could not be found, installing..."
-  sudo apt-get update
-  sudo apt-get install -y jq
+  echo "jq could not be found, please install it (e.g. 'conda install -c conda-forge jq')" >&2
+  exit 1
 fi
 
 # Create the tests_output directory if it doesn't exist
@@ -26,22 +31,28 @@ for dir in */; do
     # Create a subdirectory in tests_output for the current tool
     tool_name=$(basename "$dir")
     mkdir -p "tests_output/$tool_name"
-    
+
     # Loop over each XML file in the directory
-    for xml_file in "$dir"/*.xml; do
+    for xml_file in "$dir"*.xml; do
+      # Skip XML files that are not tool definitions (e.g. macros.xml)
+      grep -q '<tool[[:space:]]' "$xml_file" || continue
+
       # Change to the associated output directory
-      cd "tests_output/$tool_name"
-      
-      # Run planemo test on the XML file with galaxy_root set to "galaxy" and redirect output to a log file and standard output
-      planemo test --galaxy_root "../../../galaxy" "../../$xml_file" 2>&1 | tee "$(basename "$xml_file" .xml).log"
-      
-      # Check the test output JSON file for test status
+      cd "tests_output/$tool_name" || exit 1
+
+      # Remove results of a previous run, so a crashed run is not read as a pass
       output_json="tool_test_output.json"
+      rm -f "$output_json"
+
+      # Run planemo test on the XML file against the local Galaxy and redirect output to a log file and standard output
+      planemo test --galaxy_root "$galaxy_root" "$script_dir/$xml_file" 2>&1 | tee "$(basename "$xml_file" .xml).log"
+
+      # Check the test output JSON file for test status
+      total_tests=$((total_tests + 1))
       if [ -f "$output_json" ]; then
         num_errors=$(jq -r '.summary.num_errors' "$output_json")
         num_failures=$(jq -r '.summary.num_failures' "$output_json")
         num_skips=$(jq -r '.summary.num_skips' "$output_json")
-        total_tests=$((total_tests + 1))
         if [ "$num_errors" -eq 0 ] && [ "$num_failures" -eq 0 ] && [ "$num_skips" -eq 0 ]; then
           echo "Test for $xml_file passed."
           passed_tests=$((passed_tests + 1))
@@ -60,9 +71,9 @@ for dir in */; do
         errored_tests=$((errored_tests + 1))
         errored_tools+=("$tool_name")
       fi
-      
+
       # Change back to the original directory
-      cd - > /dev/null
+      cd "$script_dir" || exit 1
     done
   fi
 done
@@ -95,10 +106,7 @@ else
     printf '\033[0;33m%s\033[0m\n' "${errored_tools[@]}"
 fi
 
-# Copy passed tools to ../galaxy/tools/my_tools and overwrite existing tools
-for tool in "${passed_tools[@]}"; do
-  echo "Copying $tool to ../galaxy/tools/my_tools"
-  cp -r "$tool" "../galaxy/tools/my_tools/"
-done
-
-echo "All operations completed."
+if [ $((failed_tests + errored_tests)) -gt 0 ]; then
+  exit 1
+fi
+echo "All tests passed."
